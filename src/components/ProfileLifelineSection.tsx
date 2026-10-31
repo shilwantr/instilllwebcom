@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Phone, Shield, Bell, HeartHandshake } from 'lucide-react';
 import { soundEngine } from '../utils/audio';
 
@@ -10,16 +11,34 @@ export const ProfileLifelineSection: React.FC = () => {
     weeklyReport: false,
   });
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const springConfig = { damping: 26, stiffness: 120, mass: 0.5 };
+  const auraY = useSpring(useTransform(scrollYProgress, [0, 1], [-45, 45]), springConfig);
+
   const toggleReminder = (key: keyof typeof reminders) => {
     soundEngine.playStepClick();
     setReminders((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
   return (
-    <section id="safety" className="py-24 px-4 sm:px-8 relative bg-white text-slate-900 overflow-hidden border-b border-slate-100">
+    <section ref={sectionRef} id="safety" className="py-24 px-4 sm:px-8 relative bg-white text-slate-900 overflow-hidden border-b border-slate-100">
+      {/* Background ambient glowing blob with scroll parallax */}
+      <motion.div style={{ y: auraY }} className="absolute top-1/3 -left-20 w-80 h-80 bg-rose-100/40 rounded-full blur-3xl pointer-events-none" />
+
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Section Header with subtle scroll reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-lime text-pop-forest border border-pop-forest/20 shadow-cartoon-sm mb-4">
             <span>🔒 Section 11</span>
             <span>•</span>
@@ -32,11 +51,17 @@ export const ProfileLifelineSection: React.FC = () => {
             Your sanctuary is safeguarded with end-to-end device encryption, zero ad telemetry,
             and immediate access to professional compassionate crisis intervention.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* 988 Suicide & Crisis Lifeline Card */}
-          <div className="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-8 border-4 border-rose-400 shadow-cartoon relative overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-8 border-4 border-rose-400 shadow-cartoon relative overflow-hidden"
+          >
             <div className="flex items-center gap-3.5 mb-4">
               <div className="p-3.5 rounded-2xl bg-rose-100 text-rose-700 border-2 border-slate-900 shadow-cartoon-sm">
                 <HeartHandshake className="w-7 h-7" />
@@ -68,10 +93,16 @@ export const ProfileLifelineSection: React.FC = () => {
               <span>English & Spanish</span>
               <span>TTY Capable</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Gentle Push Micro-Reminders & Privacy */}
-          <div className="lg:col-span-6 flex flex-col gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-6 flex flex-col gap-6"
+          >
             <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-900/10 shadow-cartoon-sm">
               <h3 className="text-base font-bold text-slate-900 mb-4 flex items-center justify-between">
                 <span className="flex items-center gap-2">
@@ -122,7 +153,7 @@ export const ProfileLifelineSection: React.FC = () => {
                 <span className="text-slate-600 font-mono text-[11px]">Zero Cloud Telemetry</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

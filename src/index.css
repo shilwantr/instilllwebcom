@@ -119,6 +119,26 @@
   box-shadow: 0 30px 70px -15px rgba(15, 23, 42, 0.14), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
 }
 
+/* Native CSS Scroll-Driven Animations (Progressive Enhancement) */
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: scroll()) and (animation-range: 0% 100%)) {
+    @keyframes grow-scroll-progress {
+      from {
+        transform: scaleX(0);
+      }
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    #native-scroll-progress {
+      transform-origin: 0 50%;
+      animation: grow-scroll-progress auto linear;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+
 /* Modern Web Guidance: prefers-reduced-motion safety */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
@@ -126,5 +146,8 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  #native-scroll-progress {
+    display: none !important;
   }
 }

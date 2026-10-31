@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
 import { PenLine, TrendingUp, X } from 'lucide-react';
 import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
 import { soundEngine } from '../utils/audio';
@@ -15,11 +15,31 @@ export const JournalSection: React.FC = () => {
   );
   const [entryMood, setEntryMood] = useState('Centred & Serene');
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const springConfig = { damping: 26, stiffness: 120, mass: 0.5 };
+  const auraY = useSpring(useTransform(scrollYProgress, [0, 1], [-45, 45]), springConfig);
+  const leftColY = useSpring(useTransform(scrollYProgress, [0, 1], [25, -25]), springConfig);
+  const rightColY = useSpring(useTransform(scrollYProgress, [0, 1], [-20, 20]), springConfig);
+
   return (
-    <section id="journal" className="py-24 px-4 sm:px-8 relative bg-white text-slate-900 overflow-hidden border-b border-slate-100">
+    <section ref={sectionRef} id="journal" className="py-24 px-4 sm:px-8 relative bg-white text-slate-900 overflow-hidden border-b border-slate-100">
+      {/* Background ambient glowing blob with scroll parallax */}
+      <motion.div style={{ y: auraY }} className="absolute top-1/2 right-1/4 w-96 h-96 bg-pop-lavender/20 rounded-full blur-3xl pointer-events-none" />
+
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Section Header with subtle scroll reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-lavender text-purple-950 border border-slate-900/15 shadow-cartoon-sm mb-4">
             <span>📖 Section 05</span>
             <span>•</span>
@@ -32,11 +52,18 @@ export const JournalSection: React.FC = () => {
             Reflective journaling paired with automated pedometer and hydration tracking,
             synthesized into mathematical cubic spline trend curves.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left: App Screenshot in Light Frame */}
-          <div className="lg:col-span-5 flex flex-col items-center order-2 lg:order-1">
+          {/* Left: App Screenshot in Light Frame with subtle scroll parallax */}
+          <motion.div
+            style={{ y: leftColY }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 flex flex-col items-center order-2 lg:order-1"
+          >
             <AdaptiveScreenshotFrame
               src="./assets/screenshots/journal-metrics.jpeg"
               alt="inStill Journal and Telemetry Metrics"
@@ -65,10 +92,17 @@ export const JournalSection: React.FC = () => {
                 },
               ]}
             />
-          </div>
+          </motion.div>
 
           {/* Right: Interactive Spline Chart & Reflections Composer */}
-          <div className="lg:col-span-7 flex flex-col gap-6 order-1 lg:order-2">
+          <motion.div
+            style={{ y: rightColY }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 flex flex-col gap-6 order-1 lg:order-2"
+          >
             {/* Chart Card */}
             <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-900/10 shadow-cartoon-sm">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
@@ -196,7 +230,7 @@ export const JournalSection: React.FC = () => {
                 Write Entry
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 

@@ -1,13 +1,36 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Lock, Search, Globe, MousePointer, Heart, Smile } from 'lucide-react';
 import { soundEngine } from '../utils/audio';
 
 export const CartoonStickerCluster: React.FC = () => {
+  const clusterRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: clusterRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const springConfig = { damping: 25, stiffness: 120, mass: 0.5 };
+
+  // Subtle scroll parallax for individual stickers in the cluster
+  const yLock = useSpring(useTransform(scrollYProgress, [0, 1], [-18, 18]), springConfig);
+  const ySearch = useSpring(useTransform(scrollYProgress, [0, 1], [15, -15]), springConfig);
+  const xSearch = useSpring(useTransform(scrollYProgress, [0, 1], [-8, 8]), springConfig);
+  const yGlobe = useSpring(useTransform(scrollYProgress, [0, 1], [-12, 16]), springConfig);
+  const xGlobe = useSpring(useTransform(scrollYProgress, [0, 1], [10, -10]), springConfig);
+  const rotatePill = useSpring(useTransform(scrollYProgress, [0, 1], [-4, 2]), springConfig);
+  const yCursor = useSpring(useTransform(scrollYProgress, [0, 1], [18, -14]), springConfig);
+  const yMascot = useSpring(useTransform(scrollYProgress, [0, 1], [-16, 20]), springConfig);
+  const rotateMascot = useSpring(useTransform(scrollYProgress, [0, 1], [-10, 4]), springConfig);
+
   return (
-    <div className="relative w-full max-w-lg mx-auto py-6 sm:py-8 flex items-center justify-center select-none scale-[0.82] xs:scale-[0.9] sm:scale-100 origin-center">
+    <div
+      ref={clusterRef}
+      className="relative w-full max-w-lg mx-auto py-6 sm:py-8 flex items-center justify-center select-none scale-[0.82] xs:scale-[0.9] sm:scale-100 origin-center"
+    >
       {/* 1. Dark Forest Green Rounded Square with Padlock (Top Left) */}
       <motion.div
+        style={{ y: yLock }}
         whileHover={{ scale: 1.08, rotate: -4 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => soundEngine.playStepClick()}
@@ -20,6 +43,7 @@ export const CartoonStickerCluster: React.FC = () => {
 
       {/* 2. Soft Periwinkle Scalloped Cloud / Flower with Search (Center Left) */}
       <motion.div
+        style={{ y: ySearch, x: xSearch }}
         whileHover={{ scale: 1.08, rotate: 6 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => soundEngine.playKalimba(2)}
@@ -36,6 +60,7 @@ export const CartoonStickerCluster: React.FC = () => {
 
       {/* 3. Sunny Warm Yellow Tilted Square with Globe / Mindful Sphere (Center Right) */}
       <motion.div
+        style={{ y: yGlobe, x: xGlobe }}
         whileHover={{ scale: 1.08, rotate: -6 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => soundEngine.playKalimba(4)}
@@ -48,6 +73,7 @@ export const CartoonStickerCluster: React.FC = () => {
 
       {/* 4. The Centerpiece Big Lime Pill: 'WWW.INSTILLL.COM' (Direct homage to WWW.DOMAIN) */}
       <motion.div
+        style={{ rotate: rotatePill }}
         whileHover={{ scale: 1.04, rotate: 1 }}
         whileTap={{ scale: 0.97 }}
         onClick={() => soundEngine.playBreatheBell()}
@@ -71,6 +97,7 @@ export const CartoonStickerCluster: React.FC = () => {
 
       {/* 5. Coral Circular Badge with Cartoon Cursor Pointer (Bottom Right) */}
       <motion.div
+        style={{ y: yCursor }}
         whileHover={{ scale: 1.1, rotate: -10 }}
         whileTap={{ scale: 0.92 }}
         onClick={() => soundEngine.playWaterPour()}
@@ -83,6 +110,7 @@ export const CartoonStickerCluster: React.FC = () => {
 
       {/* 6. Official inSTILL Cuddling Cats Mascot Sticker (Bottom Left) */}
       <motion.div
+        style={{ y: yMascot, rotate: rotateMascot }}
         whileHover={{ scale: 1.15, rotate: 8 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => soundEngine.playCatPurr()}

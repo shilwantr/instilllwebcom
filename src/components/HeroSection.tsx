@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowDown, Palette, Volume2, ShieldCheck, Heart, Smile } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { ArrowDown, Palette, Volume2, ShieldCheck, Heart, Smile, ChevronDown } from 'lucide-react';
 import { LivingCanvas, LivingTheme } from './LivingCanvas';
 import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
 import { CartoonStickerCluster } from './CartoonStickerCluster';
@@ -18,6 +18,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onOpenSoundModal,
 }) => {
   const [selectedDashboardVariant, setSelectedDashboardVariant] = useState<'light' | 'dark' | 'cosmic'>('light');
+  const heroRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+
+  const springConfig = { damping: 28, stiffness: 140, mass: 0.6 };
+  const leftY = useSpring(useTransform(scrollYProgress, [0, 1], [0, -40]), springConfig);
+  const rightY = useSpring(useTransform(scrollYProgress, [0, 1], [0, 30]), springConfig);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.2]);
+  const promptOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const promptY = useTransform(scrollYProgress, [0, 0.2], [0, 15]);
 
   const dashboardImages = {
     light: './assets/screenshots/dashboard-light.jpeg',
@@ -33,15 +46,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   ];
 
   return (
-    <section className="relative min-h-screen pt-32 pb-24 px-4 sm:px-8 flex flex-col justify-center overflow-hidden bg-pop-cream">
+    <section ref={heroRef} className="relative min-h-screen pt-32 pb-24 px-4 sm:px-8 flex flex-col justify-center overflow-hidden bg-pop-cream">
       {/* Living Canvas Interactive Pastel Background */}
       <div className="absolute inset-0 -z-20 pointer-events-auto">
         <LivingCanvas theme={currentTheme} />
       </div>
 
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center z-10">
-        {/* Left Column: Vision, Headline, Tagline, CTAs */}
+      <motion.div style={{ opacity: heroOpacity }} className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center z-10">
+        {/* Left Column: Vision, Headline, Tagline, CTAs with subtle scroll parallax */}
         <motion.div
+          style={{ y: leftY }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -121,14 +135,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
         </motion.div>
 
-        {/* Right Column: Cartoon Sticker Cluster + Clean White Mockup */}
+        {/* Right Column: Cartoon Sticker Cluster + Clean White Mockup with subtle scroll parallax */}
         <motion.div
+          style={{ y: rightY }}
           initial={{ opacity: 0, scale: 0.94, y: 40 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-6 flex flex-col items-center justify-center relative"
         >
-          {/* Tilted Cartoon Sticker Cluster (Directly inspired by reference) */}
+          {/* Tilted Cartoon Sticker Cluster */}
           <CartoonStickerCluster />
 
           {/* Theme Variant Tabs for Mockup */}
@@ -210,7 +225,25 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             ]}
           />
         </motion.div>
-      </div>
+      </motion.div>
+
+      {/* Subtle Scroll Cue Pill */}
+      <motion.div
+        style={{ opacity: promptOpacity, y: promptY }}
+        className="relative z-20 flex justify-center mt-12 pointer-events-auto"
+      >
+        <a
+          href="#today"
+          data-cursor="pointer"
+          onClick={() => soundEngine.playScrubTick()}
+          aria-label="Scroll to explore features"
+          className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 border border-slate-200/90 shadow-sm text-xs font-bold text-slate-600 hover:text-pop-forest hover:border-pop-forest/40 transition-all backdrop-blur-md"
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-pop-forest animate-ping" />
+          <span>Scroll to explore</span>
+          <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-pop-forest transition-transform group-hover:translate-y-0.5" />
+        </a>
+      </motion.div>
     </section>
   );
 };

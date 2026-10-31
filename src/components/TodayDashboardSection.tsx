@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Heart, RefreshCw, Droplet, Flame, Footprints, Clock, ArrowRight, UserCheck } from 'lucide-react';
 import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
 import { soundEngine } from '../utils/audio';
@@ -73,15 +73,32 @@ export const TodayDashboardSection: React.FC = () => {
   const caloriesBurned = (0.04 * steps).toFixed(0);
   const distanceKm = (0.000762 * steps).toFixed(2);
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const springConfig = { damping: 26, stiffness: 120, mass: 0.5 };
+  const aura1Y = useSpring(useTransform(scrollYProgress, [0, 1], [-50, 50]), springConfig);
+  const aura2Y = useSpring(useTransform(scrollYProgress, [0, 1], [50, -50]), springConfig);
+  const rightColY = useSpring(useTransform(scrollYProgress, [0, 1], [25, -25]), springConfig);
+
   return (
-    <section id="today" className="py-24 px-4 sm:px-8 relative bg-white text-slate-900 overflow-hidden border-t border-b border-slate-100">
-      {/* Light background auras */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pop-lime/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pop-periwinkle/15 rounded-full blur-3xl pointer-events-none" />
+    <section ref={sectionRef} id="today" className="py-24 px-4 sm:px-8 relative bg-white text-slate-900 overflow-hidden border-t border-b border-slate-100">
+      {/* Light background auras with subtle scroll parallax */}
+      <motion.div style={{ y: aura1Y }} className="absolute top-1/4 left-1/4 w-96 h-96 bg-pop-lime/20 rounded-full blur-3xl pointer-events-none" />
+      <motion.div style={{ y: aura2Y }} className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pop-periwinkle/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Section Header with subtle scroll reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-lime text-pop-forest border border-pop-forest/20 shadow-cartoon-sm mb-4">
             <span>✨ Section 03</span>
             <span>•</span>
@@ -94,13 +111,19 @@ export const TodayDashboardSection: React.FC = () => {
             Every morning begins with mindful presence. Track your emotional climate, log pure hydration,
             and monitor sensory telemetry seamlessly in real time.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Interactive Cards & Micro-Interactions */}
           <div className="lg:col-span-7 flex flex-col gap-6">
             {/* 1. Daily Reflection Card */}
-            <div className="bg-white rounded-3xl p-6 sm:p-7 relative overflow-hidden border-2 border-slate-900/10 shadow-cartoon-sm">
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, delay: 0.1 }}
+              className="bg-white rounded-3xl p-6 sm:p-7 relative overflow-hidden border-2 border-slate-900/10 shadow-cartoon-sm"
+            >
               <div className="flex items-center justify-between mb-4">
                 <span className="text-xs uppercase tracking-widest text-pop-forest font-bold font-mono flex items-center gap-1.5">
                   <span className="text-lg">”</span> Daily Reflection
@@ -141,10 +164,16 @@ export const TodayDashboardSection: React.FC = () => {
               <div className="text-xs text-pop-forest font-bold font-mono tracking-wider">
                 — {quotesList[quoteIndex].author}
               </div>
-            </div>
+            </motion.div>
 
             {/* 2. 5-State Mood Check-In Bar */}
-            <div className="bg-white rounded-3xl p-4 sm:p-6 border-2 border-slate-900/10 shadow-cartoon-sm">
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, delay: 0.2 }}
+              className="bg-white rounded-3xl p-4 sm:p-6 border-2 border-slate-900/10 shadow-cartoon-sm"
+            >
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
                   How are you feeling right now?
@@ -174,10 +203,16 @@ export const TodayDashboardSection: React.FC = () => {
                   </button>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* 3. Hydration & Walking Telemetry Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, delay: 0.3 }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            >
               {/* Hydration Intake Card */}
               <div className="bg-white rounded-3xl p-5 border-2 border-slate-900/10 shadow-cartoon-sm flex flex-col justify-between">
                 <div>
@@ -276,10 +311,16 @@ export const TodayDashboardSection: React.FC = () => {
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* 4. Interactive Mood Trend Wave Graph with Scrubber */}
-            <div className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm">
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, delay: 0.4 }}
+              className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm"
+            >
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h4 className="text-sm font-bold text-slate-900">7-Day Emotional Climate</h4>
@@ -335,11 +376,18 @@ export const TodayDashboardSection: React.FC = () => {
                   />
                 </svg>
               </div>
-            </div>
+            </motion.div>
           </div>
 
-          {/* Right Column: Actual App Screenshot in Clean White Frame */}
-          <div className="lg:col-span-5 flex flex-col items-center">
+          {/* Right Column: Actual App Screenshot in Clean White Frame with subtle scroll parallax */}
+          <motion.div
+            style={{ y: rightColY }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 flex flex-col items-center"
+          >
             <AdaptiveScreenshotFrame
               src="./assets/screenshots/dashboard-light.jpeg"
               alt="inStill Light Dashboard Clean White"
@@ -371,7 +419,7 @@ export const TodayDashboardSection: React.FC = () => {
             <p className="mt-4 text-xs font-mono text-slate-500 text-center max-w-xs font-medium">
               Screenshots automatically tilt inward or outward based on viewport scroll depth.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
 import { ShieldAlert, Wind, Home, Eye, CheckCircle2 } from 'lucide-react';
 import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
 import { soundEngine } from '../utils/audio';
@@ -15,6 +15,16 @@ export const DoomBreakerSection: React.FC = () => {
     Reddit: true,
   });
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const springConfig = { damping: 26, stiffness: 120, mass: 0.5 };
+  const auraY = useSpring(useTransform(scrollYProgress, [0, 1], [-45, 45]), springConfig);
+  const rightColY = useSpring(useTransform(scrollYProgress, [0, 1], [25, -25]), springConfig);
+
   const toggleApp = (app: string) => {
     soundEngine.playStepClick();
     setMonitoredApps((prev) => ({ ...prev, [app]: !prev[app] }));
@@ -26,10 +36,19 @@ export const DoomBreakerSection: React.FC = () => {
   };
 
   return (
-    <section id="doombreaker" className="py-24 px-4 sm:px-8 relative bg-white text-slate-900 overflow-hidden border-b border-slate-100">
+    <section ref={sectionRef} id="doombreaker" className="py-24 px-4 sm:px-8 relative bg-white text-slate-900 overflow-hidden border-b border-slate-100">
+      {/* Background ambient glowing blob with scroll parallax */}
+      <motion.div style={{ y: auraY }} className="absolute top-1/4 -right-20 w-80 h-80 bg-rose-100/50 rounded-full blur-3xl pointer-events-none" />
+
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Section Header with subtle scroll reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-coral text-white border border-slate-900/15 shadow-cartoon-sm mb-4">
             <span>🛡️ Section 09</span>
             <span>•</span>
@@ -42,11 +61,17 @@ export const DoomBreakerSection: React.FC = () => {
             Reclaim your attention. When continuous feeds hijack your focus, inStill intervenes
             with a deep harmonic singing bowl gong and autonomic resets.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Settings Simulation */}
-          <div className="lg:col-span-7 flex flex-col gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 flex flex-col gap-6"
+          >
             <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-900/10 shadow-cartoon-sm">
               <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-3 mb-6">
                 <div className="flex items-center gap-3">
@@ -129,10 +154,17 @@ export const DoomBreakerSection: React.FC = () => {
                 <span>⚡ Preview Break Intervention Screen (With Gong)</span>
               </button>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Screenshot Frame */}
-          <div className="lg:col-span-5 flex flex-col items-center">
+          {/* Screenshot Frame with subtle scroll parallax */}
+          <motion.div
+            style={{ y: rightColY }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 flex flex-col items-center"
+          >
             <AdaptiveScreenshotFrame
               src="./assets/screenshots/profile-doombreaker.jpeg"
               alt="inStill Doom-Scroll Breaker Profile Settings"
@@ -141,7 +173,7 @@ export const DoomBreakerSection: React.FC = () => {
               glowColor="rgba(250, 123, 96, 0.45)"
               badge="Accessibility Monitor"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
 

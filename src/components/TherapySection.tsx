@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Video, Mic, MicOff, VideoOff, Star, ShieldCheck, PhoneCall, UserCheck, Stethoscope } from 'lucide-react';
 import { soundEngine } from '../utils/audio';
 
@@ -7,6 +8,16 @@ export const TherapySection: React.FC = () => {
   const [isCallActive, setIsCallActive] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [isVideoOff, setIsVideoOff] = useState(false);
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const springConfig = { damping: 26, stiffness: 120, mass: 0.5 };
+  const auraY = useSpring(useTransform(scrollYProgress, [0, 1], [-40, 40]), springConfig);
+  const rightColY = useSpring(useTransform(scrollYProgress, [0, 1], [25, -25]), springConfig);
 
   const therapists = [
     {
@@ -30,10 +41,19 @@ export const TherapySection: React.FC = () => {
   ];
 
   return (
-    <section id="telehealth" className="py-24 px-4 sm:px-8 relative bg-pop-cream text-slate-900 overflow-hidden border-b border-slate-100">
+    <section ref={sectionRef} id="telehealth" className="py-24 px-4 sm:px-8 relative bg-pop-cream text-slate-900 overflow-hidden border-b border-slate-100">
+      {/* Background ambient glowing blob with scroll parallax */}
+      <motion.div style={{ y: auraY }} className="absolute top-1/3 -right-20 w-80 h-80 bg-pop-yellow/20 rounded-full blur-3xl pointer-events-none" />
+
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Section Header with subtle scroll reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-yellow text-slate-900 border border-slate-900/15 shadow-cartoon-sm mb-4">
             <span>🩺 Section 06</span>
             <span>•</span>
@@ -85,7 +105,7 @@ export const TherapySection: React.FC = () => {
               <span>Therapist View</span>
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Content Body */}
         {role === 'client' ? (
@@ -94,8 +114,12 @@ export const TherapySection: React.FC = () => {
             <div className="lg:col-span-6 flex flex-col gap-5">
               <h3 className="text-xl font-bold text-slate-900 mb-2">Certified Clinical Directory</h3>
               {therapists.map((doc, idx) => (
-                <div
+                <motion.div
                   key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.55, delay: idx * 0.12 }}
                   className="bg-white rounded-3xl p-6 sm:p-7 border-2 border-slate-900/10 shadow-cartoon-sm hover:border-pop-forest transition-all"
                 >
                   <div className="flex items-start justify-between gap-4 mb-3">
@@ -137,12 +161,19 @@ export const TherapySection: React.FC = () => {
                       <span>Start Video Consult</span>
                     </button>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
-            {/* Live Video Consultation Mockup */}
-            <div className="lg:col-span-6 flex flex-col items-center">
+            {/* Live Video Consultation Mockup with subtle scroll parallax */}
+            <motion.div
+              style={{ y: rightColY }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-6 flex flex-col items-center"
+            >
               <div className="w-full max-w-md rounded-[40px] bg-white p-4 border-2 border-slate-900/15 shadow-cartoon relative overflow-hidden">
                 <div className="relative aspect-[9/13] rounded-[30px] overflow-hidden bg-slate-900 border border-slate-800 flex flex-col justify-between p-4">
                   {/* Doctor Video Stream */}
@@ -220,10 +251,16 @@ export const TherapySection: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         ) : (
-          <div className="max-w-4xl mx-auto bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-900/10 shadow-cartoon-sm">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-900/10 shadow-cartoon-sm"
+          >
             <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
               <div>
                 <h3 className="text-xl font-bold text-slate-900">Practitioner Telehealth Portal</h3>
@@ -259,7 +296,7 @@ export const TherapySection: React.FC = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
     </section>

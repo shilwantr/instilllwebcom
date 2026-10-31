@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 import { LivingCanvas, LivingTheme } from './LivingCanvas';
 import { soundEngine } from '../utils/audio';
@@ -12,6 +13,14 @@ export const LivingThemesMatrix: React.FC<LivingThemesMatrixProps> = ({
   currentTheme,
   onThemeSelect,
 }) => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const springConfig = { damping: 26, stiffness: 120, mass: 0.5 };
+  const auraY = useSpring(useTransform(scrollYProgress, [0, 1], [-45, 45]), springConfig);
   const themesList: {
     id: LivingTheme;
     name: string;
@@ -99,10 +108,19 @@ export const LivingThemesMatrix: React.FC<LivingThemesMatrixProps> = ({
   ];
 
   return (
-    <section id="themes" className="py-24 px-4 sm:px-8 relative bg-pop-cream text-slate-900 overflow-hidden border-b border-slate-100">
+    <section ref={sectionRef} id="themes" className="py-24 px-4 sm:px-8 relative bg-pop-cream text-slate-900 overflow-hidden border-b border-slate-100">
+      {/* Background ambient glowing blob with scroll parallax */}
+      <motion.div style={{ y: auraY }} className="absolute top-1/3 -right-20 w-80 h-80 bg-pop-lime/20 rounded-full blur-3xl pointer-events-none" />
+
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Section Header with subtle scroll reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-lime text-pop-forest border border-pop-forest/20 shadow-cartoon-sm mb-4">
             <span>🎨 Section 12</span>
             <span>•</span>
@@ -115,15 +133,19 @@ export const LivingThemesMatrix: React.FC<LivingThemesMatrixProps> = ({
             Every screen in inStill breathes with 60 FPS procedural shader physics.
             Click any canvas card below to immediately transform the website's living backdrop.
           </p>
-        </div>
+        </motion.div>
 
-        {/* 11 Themes Grid */}
+        {/* 11 Themes Grid with Cascading Staggered Scroll Entrance */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          {themesList.map((t) => {
+          {themesList.map((t, idx) => {
             const isSelected = currentTheme === t.id;
             return (
-              <button
+              <motion.button
                 key={t.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.5, delay: idx * 0.04, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => {
                   onThemeSelect(t.id);
                   soundEngine.playBreatheBell();
@@ -160,7 +182,7 @@ export const LivingThemesMatrix: React.FC<LivingThemesMatrixProps> = ({
                   <span>{t.paletteDesc}</span>
                   <span className="text-pop-forest font-bold group-hover:translate-x-1 transition-transform">→</span>
                 </div>
-              </button>
+              </motion.button>
             );
           })}
         </div>

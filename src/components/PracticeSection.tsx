@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Wind, Music, Moon, Play, Volume2, CloudRain, Waves } from 'lucide-react';
 import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
 import { soundEngine } from '../utils/audio';
@@ -121,11 +121,32 @@ export const PracticeSection: React.FC = () => {
     },
   ];
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const springConfig = { damping: 26, stiffness: 120, mass: 0.5 };
+  const aura1Y = useSpring(useTransform(scrollYProgress, [0, 1], [-45, 45]), springConfig);
+  const aura2Y = useSpring(useTransform(scrollYProgress, [0, 1], [45, -45]), springConfig);
+  const rightColY = useSpring(useTransform(scrollYProgress, [0, 1], [25, -25]), springConfig);
+
   return (
-    <section id="practice" className="py-24 px-4 sm:px-8 relative bg-pop-cream text-slate-900 overflow-hidden border-b border-slate-100">
+    <section ref={sectionRef} id="practice" className="py-24 px-4 sm:px-8 relative bg-pop-cream text-slate-900 overflow-hidden border-b border-slate-100">
+      {/* Background ambient glowing auras with scroll parallax */}
+      <motion.div style={{ y: aura1Y }} className="absolute top-1/3 -left-20 w-80 h-80 bg-pop-lime/25 rounded-full blur-3xl pointer-events-none" />
+      <motion.div style={{ y: aura2Y }} className="absolute bottom-1/3 -right-20 w-80 h-80 bg-pop-lavender/30 rounded-full blur-3xl pointer-events-none" />
+
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        {/* Section Header with subtle scroll reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-14"
+        >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-periwinkle text-slate-900 border border-slate-900/15 shadow-cartoon-sm mb-4">
             <span>🌬️ Section 04</span>
             <span>•</span>
@@ -189,7 +210,7 @@ export const PracticeSection: React.FC = () => {
               <span>Sleep</span>
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Tab 1: Breathe Mode */}
         {activeMode === 'breathe' && (
@@ -300,7 +321,14 @@ export const PracticeSection: React.FC = () => {
             </div>
 
             {/* Right: Actual Breathe Screen Mockup */}
-            <div className="lg:col-span-5 flex flex-col items-center">
+            <motion.div
+              style={{ y: rightColY }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="lg:col-span-5 flex flex-col items-center"
+            >
               <AdaptiveScreenshotFrame
                 src="./assets/screenshots/breathe-orb.jpeg"
                 alt="inStill Breathe Screen"
@@ -323,7 +351,7 @@ export const PracticeSection: React.FC = () => {
                   },
                 ]}
               />
-            </div>
+            </motion.div>
           </div>
         )}
 
@@ -404,7 +432,14 @@ export const PracticeSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="lg:col-span-5 flex flex-col items-center">
+            <motion.div
+              style={{ y: rightColY }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="lg:col-span-5 flex flex-col items-center"
+            >
               <AdaptiveScreenshotFrame
                 src="./assets/screenshots/heal-music.jpeg"
                 alt="inStill Heal Bilateral Music Screen"
@@ -413,14 +448,20 @@ export const PracticeSection: React.FC = () => {
                 glowColor="rgba(203, 180, 245, 0.45)"
                 badge="Heal Mode: EMDR Audio"
               />
-            </div>
+            </motion.div>
           </div>
         )}
 
         {/* Tab 3: Sleep Mode (Showcases the Cartoon Vector Art) */}
         {activeMode === 'sleep' && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center animate-in fade-in duration-500">
-            <div className="lg:col-span-6 flex flex-col gap-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-6 flex flex-col gap-4"
+            >
               <div className="bg-white rounded-3xl p-6 sm:p-7 border-2 border-slate-900/10 shadow-cartoon-sm">
                 <h3 className="text-2xl font-sans font-extrabold text-slate-900 mb-2">Restorative Sleep Landscapes</h3>
                 <p className="text-xs text-slate-600 leading-relaxed mb-6">
@@ -457,9 +498,16 @@ export const PracticeSection: React.FC = () => {
                   })}
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="lg:col-span-6 flex flex-col items-center">
+            <motion.div
+              style={{ y: rightColY }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="lg:col-span-6 flex flex-col items-center"
+            >
               <AdaptiveScreenshotFrame
                 src={sleepScenes[selectedSleepScene].img}
                 alt={sleepScenes[selectedSleepScene].name}
@@ -471,7 +519,7 @@ export const PracticeSection: React.FC = () => {
               <p className="mt-4 text-xs font-mono font-bold text-slate-600 text-center">
                 Original vector artwork designed for inStill’s restorative sleep immersion.
               </p>
-            </div>
+            </motion.div>
           </div>
         )}
       </div>

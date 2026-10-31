@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Clock, BatteryCharging, BellOff, Palette, Maximize2, Zap, Thermometer } from 'lucide-react';
 import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
 import { soundEngine } from '../utils/audio';
@@ -14,6 +15,15 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
   const [clockStyle, setClockStyle] = useState<ClockStyle>('bubble');
   const [activePalette, setActivePalette] = useState<PastelPaletteKey>('olive');
   const [currentTime, setCurrentTime] = useState({ hours: '07', minutes: '32' });
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const springConfig = { damping: 26, stiffness: 120, mass: 0.5 };
+  const auraY = useSpring(useTransform(scrollYProgress, [0, 1], [-45, 45]), springConfig);
 
   useEffect(() => {
     const updateTime = () => {
@@ -61,10 +71,19 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
   const currentPal = palettes[activePalette];
 
   return (
-    <section id="desk-clock" className="py-24 px-4 sm:px-8 relative bg-pop-cream text-slate-900 overflow-hidden border-b border-slate-100">
+    <section ref={sectionRef} id="desk-clock" className="py-24 px-4 sm:px-8 relative bg-pop-cream text-slate-900 overflow-hidden border-b border-slate-100">
+      {/* Background ambient glowing blob with scroll parallax */}
+      <motion.div style={{ y: auraY }} className="absolute top-1/3 -right-20 w-80 h-80 bg-pop-lime/20 rounded-full blur-3xl pointer-events-none" />
+
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        {/* Section Header with subtle scroll reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-14"
+        >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-lime text-pop-forest border border-pop-forest/20 shadow-cartoon-sm mb-4">
             <span>⏰ Section 08</span>
             <span>•</span>
@@ -90,10 +109,16 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
             <Maximize2 className="w-4 h-4" />
             <span>Launch StandBy Fullscreen Mode</span>
           </button>
-        </div>
+        </motion.div>
 
-        {/* HORIZONTAL SCREENSHOT SHOWCASE (Panoramic Horizon Stand) */}
-        <div className="mb-16">
+        {/* HORIZONTAL SCREENSHOT SHOWCASE (Panoramic Horizon Stand) with subtle scroll reveal */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-16"
+        >
           <div className="text-center mb-4">
             <span className="text-xs uppercase font-mono font-bold tracking-wider text-slate-500">
               Panoramic Horizon Perspective • Scroll to Observe Responsive 3D Stand Pitch
@@ -127,12 +152,18 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
               },
             ]}
           />
-        </div>
+        </motion.div>
 
         {/* Interactive Customization Studio */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Main Simulator Display */}
-          <div className="lg:col-span-8 bg-white rounded-3xl p-6 sm:p-10 border-2 border-slate-900/10 shadow-cartoon relative overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-8 bg-white rounded-3xl p-6 sm:p-10 border-2 border-slate-900/10 shadow-cartoon relative overflow-hidden"
+          >
             {/* DND Status Pill */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 mb-6">
               <div className="px-3.5 sm:px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-mono text-slate-700 flex items-center gap-2 font-bold">
@@ -223,10 +254,16 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Controls */}
-          <div className="lg:col-span-4 flex flex-col gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="lg:col-span-4 flex flex-col gap-6"
+          >
             <div className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm">
               <h3 className="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
                 <Clock className="w-4 h-4 text-pop-forest" />
@@ -297,7 +334,7 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
                 })}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

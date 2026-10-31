@@ -13,6 +13,7 @@ import { SoundboardSection } from './components/SoundboardSection';
 import { ProfileLifelineSection } from './components/ProfileLifelineSection';
 import { LivingThemesMatrix } from './components/LivingThemesMatrix';
 import { Footer } from './components/Footer';
+import { BackToTopButton } from './components/BackToTopButton';
 import { StandByClockModal } from './components/StandByClockModal';
 import { SoundscapesModal } from './components/SoundscapesModal';
 import { LivingTheme } from './components/LivingCanvas';
@@ -32,6 +33,13 @@ export const App: React.FC = () => {
 
   return (
     <div className="relative min-h-screen bg-pop-cream text-slate-900 font-sans selection:bg-pop-lime selection:text-pop-forest">
+      {/* Native CSS Scroll-Driven Progress Bar (Progressive Enhancement per Modern Web Guidance) */}
+      <div
+        id="native-scroll-progress"
+        aria-hidden="true"
+        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-pop-forest via-pop-lime to-pop-yellow z-[9999] pointer-events-none"
+      />
+
       {/* Skip to Main Content Link for Accessibility & Agentic Crawlers */}
       <a
         href="#main-content"
@@ -95,6 +103,9 @@ export const App: React.FC = () => {
 
       {/* Footer */}
       <Footer />
+
+      {/* Floating Back to Top Button */}
+      <BackToTopButton />
 
       {/* Fullscreen Modals */}
       <StandByClockModal

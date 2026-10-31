@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { Clock, Volume2, Menu, X, ArrowUpRight } from 'lucide-react';
 import { LivingTheme } from './LivingCanvas';
 import { soundEngine } from '../utils/audio';
@@ -18,34 +19,76 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('');
+
+  const { scrollYProgress } = useScroll();
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 280,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 30);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { name: 'Today', href: '#today' },
-    { name: 'Breathe & Sleep', href: '#practice' },
-    { name: 'Journal', href: '#journal' },
-    { name: 'Telehealth', href: '#telehealth' },
-    { name: 'Companions', href: '#companions' },
-    { name: 'Desk Clock', href: '#desk-clock' },
-    { name: 'Soundboard', href: '#soundboard' },
+    { name: 'Today', href: '#today', id: 'today' },
+    { name: 'Breathe & Sleep', href: '#practice', id: 'practice' },
+    { name: 'Journal', href: '#journal', id: 'journal' },
+    { name: 'Telehealth', href: '#telehealth', id: 'telehealth' },
+    { name: 'Companions', href: '#companions', id: 'companions' },
+    { name: 'Desk Clock', href: '#desk-clock', id: 'desk-clock' },
+    { name: 'Soundboard', href: '#soundboard', id: 'soundboard' },
   ];
+
+  // Scroll spy to highlight active section as user scrolls
+  useEffect(() => {
+    const sectionIds = navLinks.map((l) => l.id);
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveSection(id);
+            }
+          });
+        },
+        { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach((obs) => obs.disconnect());
+    };
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 pt-4 transition-all duration-300">
       <nav
-        className={`max-w-6xl mx-auto rounded-full transition-all duration-300 px-4 sm:px-7 py-3 flex items-center justify-between ${
+        className={`relative max-w-6xl mx-auto rounded-full transition-all duration-300 px-4 sm:px-7 py-3 flex items-center justify-between overflow-hidden ${
           scrolled
             ? 'bg-white/95 text-slate-900 border-2 border-slate-900/10 shadow-lg backdrop-blur-xl'
             : 'bg-white/85 text-slate-900 border border-slate-200/90 shadow-sm backdrop-blur-md'
         }`}
       >
+        {/* Subtle Micro Scroll Progress Bar along the bottom of the pill navbar */}
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-pop-forest via-pop-lime to-amber-400 pointer-events-none origin-left"
+          style={{ scaleX: smoothProgress }}
+          aria-hidden="true"
+        />
+
         {/* Brand Logotype with Sleeping Cats Mascot Logo */}
         <a
           href="#"
@@ -70,23 +113,30 @@ export const Navbar: React.FC<NavbarProps> = ({
         </a>
 
         {/* Center Nav Links (Desktop) */}
-        <div className="hidden lg:flex items-center gap-7 text-xs font-semibold tracking-wider uppercase text-slate-600">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              data-cursor="pointer"
-              onClick={() => soundEngine.playScrubTick()}
-              className="hover:text-pop-forest transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-pop-forest after:transition-all hover:after:w-full"
-            >
-              {link.name}
-            </a>
-          ))}
+        <div className="hidden lg:flex items-center gap-1.5 xl:gap-3 text-xs font-semibold tracking-wider uppercase text-slate-600">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                data-cursor="pointer"
+                onClick={() => soundEngine.playScrubTick()}
+                className={`transition-all relative px-3 py-1.5 rounded-full ${
+                  isActive
+                    ? 'bg-pop-lime text-pop-forest font-bold shadow-sm'
+                    : 'hover:text-pop-forest hover:bg-slate-100/70 text-slate-700'
+                }`}
+              >
+                {link.name}
+              </a>
+            );
+          })}
         </div>
 
         {/* Right Status Actions */}
         <div className="flex items-center gap-1 sm:gap-2.5">
-          {/* Interactive Theme Pill (hidden on xs screens to avoid overcrowding) */}
+          {/* Interactive Theme Pill */}
           <button
             onClick={() => {
               onThemeCycle();
@@ -188,20 +238,27 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           <div className="flex flex-col gap-1 text-sm font-semibold tracking-wider uppercase">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => {
-                  soundEngine.playScrubTick();
-                  setMobileMenuOpen(false);
-                }}
-                className="py-3 px-3 rounded-xl text-slate-700 hover:text-pop-forest hover:bg-slate-50 transition-colors flex items-center justify-between"
-              >
-                <span>{link.name}</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.id;
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => {
+                    soundEngine.playScrubTick();
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`py-3 px-3 rounded-xl transition-colors flex items-center justify-between ${
+                    isActive
+                      ? 'bg-pop-lime text-pop-forest font-bold'
+                      : 'text-slate-700 hover:text-pop-forest hover:bg-slate-50'
+                  }`}
+                >
+                  <span>{link.name}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
+                </a>
+              );
+            })}
           </div>
         </div>
       )}

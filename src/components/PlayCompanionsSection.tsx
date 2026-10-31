@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Cat, Smile, Gamepad2, Heart, RefreshCw, Zap } from 'lucide-react';
 import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
 import { soundEngine } from '../utils/audio';
@@ -9,6 +9,16 @@ type EmoExpression = 'normal' | 'happy' | 'sleepy' | 'curious' | 'wink' | 'surpr
 
 export const PlayCompanionsSection: React.FC = () => {
   const [tab, setTab] = useState<CompanionTab>('mewmew');
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const springConfig = { damping: 26, stiffness: 120, mass: 0.5 };
+  const auraY = useSpring(useTransform(scrollYProgress, [0, 1], [-45, 45]), springConfig);
+  const rightColY = useSpring(useTransform(scrollYProgress, [0, 1], [25, -25]), springConfig);
 
   // Mew Mew State
   const [catAction, setCatAction] = useState('Sleeping peacefully on your desk 💤');
@@ -70,10 +80,19 @@ export const PlayCompanionsSection: React.FC = () => {
   };
 
   return (
-    <section id="companions" className="py-24 px-4 sm:px-8 relative bg-white text-slate-900 overflow-hidden border-b border-slate-100">
+    <section ref={sectionRef} id="companions" className="py-24 px-4 sm:px-8 relative bg-white text-slate-900 overflow-hidden border-b border-slate-100">
+      {/* Background ambient glowing blob with scroll parallax */}
+      <motion.div style={{ y: auraY }} className="absolute top-1/4 -left-16 w-80 h-80 bg-pop-coral/15 rounded-full blur-3xl pointer-events-none" />
+
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Section Header with subtle scroll reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-coral text-white border border-slate-900/15 shadow-cartoon-sm mb-4">
             <span>🐾 Section 07</span>
             <span>•</span>
@@ -138,7 +157,7 @@ export const PlayCompanionsSection: React.FC = () => {
               <span>Sensory Mini-Games</span>
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Tab 1: Mew Mew Virtual Cat Companion */}
         {tab === 'mewmew' && (
@@ -213,7 +232,14 @@ export const PlayCompanionsSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="lg:col-span-5 flex flex-col items-center">
+            <motion.div
+              style={{ y: rightColY }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="lg:col-span-5 flex flex-col items-center"
+            >
               <AdaptiveScreenshotFrame
                 src="./assets/screenshots/play-emo-robot.jpeg"
                 alt="inStill Companion Screen"
@@ -222,7 +248,7 @@ export const PlayCompanionsSection: React.FC = () => {
                 glowColor="rgba(250, 123, 96, 0.45)"
                 badge="PlaygroundScreen.kt"
               />
-            </div>
+            </motion.div>
           </div>
         )}
 
@@ -396,8 +422,15 @@ export const PlayCompanionsSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Right: Side-by-side Screenshots */}
-            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Right: Side-by-side Screenshots with subtle scroll parallax */}
+            <motion.div
+              style={{ y: rightColY }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4"
+            >
               <AdaptiveScreenshotFrame
                 src="./assets/screenshots/play-game-2048.jpeg"
                 alt="Tile Shift 2048 Game"
@@ -414,7 +447,7 @@ export const PlayCompanionsSection: React.FC = () => {
                 glowColor="rgba(254, 214, 104, 0.4)"
                 badge="Reflex Core"
               />
-            </div>
+            </motion.div>
           </div>
         )}
       </div>

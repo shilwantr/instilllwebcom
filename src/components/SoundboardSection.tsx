@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Volume2, Bell, Droplet, SlidersHorizontal, Activity, Disc, Radio } from 'lucide-react';
 import { soundEngine } from '../utils/audio';
 
 export const SoundboardSection: React.FC = () => {
   const [activeVisualizer, setActiveVisualizer] = useState<'none' | 'ripple' | 'swell' | 'fanfare'>('none');
   const [kalimbaStep, setKalimbaStep] = useState(0);
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const springConfig = { damping: 26, stiffness: 120, mass: 0.5 };
+  const auraY = useSpring(useTransform(scrollYProgress, [0, 1], [-45, 45]), springConfig);
 
   const triggerSound = (type: string, visual: 'ripple' | 'swell' | 'fanfare') => {
     setActiveVisualizer(visual);
@@ -92,10 +101,19 @@ export const SoundboardSection: React.FC = () => {
   ];
 
   return (
-    <section id="soundboard" className="py-24 px-4 sm:px-8 relative bg-pop-cream text-slate-900 overflow-hidden border-b border-slate-100">
+    <section ref={sectionRef} id="soundboard" className="py-24 px-4 sm:px-8 relative bg-pop-cream text-slate-900 overflow-hidden border-b border-slate-100">
+      {/* Background ambient glowing blob with scroll parallax */}
+      <motion.div style={{ y: auraY }} className="absolute top-1/3 -left-20 w-80 h-80 bg-pop-yellow/20 rounded-full blur-3xl pointer-events-none" />
+
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Section Header with subtle scroll reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-yellow text-slate-900 border border-slate-900/15 shadow-cartoon-sm mb-4">
             <span>🔔 Section 10</span>
             <span>•</span>
@@ -108,10 +126,16 @@ export const SoundboardSection: React.FC = () => {
             Every audio cue in inStill is synthesized dynamically via hardware oscillators,
             ensuring zero bandwidth lag, clean transients, and soothing therapeutic frequencies.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Visual Waveform Canvas Display */}
-        <div className="max-w-3xl mx-auto h-36 rounded-3xl bg-white border-2 border-slate-900/10 p-6 flex flex-col items-center justify-center relative overflow-hidden mb-12 shadow-cartoon-sm">
+        {/* Visual Waveform Canvas Display with subtle scroll reveal */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96, y: 20 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl mx-auto h-36 rounded-3xl bg-white border-2 border-slate-900/10 p-6 flex flex-col items-center justify-center relative overflow-hidden mb-12 shadow-cartoon-sm"
+        >
           <div className="absolute top-3 left-5 text-xs font-mono font-bold text-slate-500 flex items-center gap-2">
             <Volume2 className="w-3.5 h-3.5 text-pop-forest" />
             <span>Realtime Web Audio Waveform Simulator</span>
@@ -152,16 +176,20 @@ export const SoundboardSection: React.FC = () => {
               ))}
             </div>
           )}
-        </div>
+        </motion.div>
 
-        {/* 6 Sound Tiles Grid */}
+        {/* 6 Sound Tiles Grid with Cascading Staggered Scroll Entrance */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {soundCues.map((cue) => {
+          {soundCues.map((cue, idx) => {
             const Icon = cue.icon;
             return (
-              <button
+              <motion.button
                 type="button"
                 key={cue.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => triggerSound(cue.id, cue.visual)}
                 aria-label={`Synthesize audio cue: ${cue.title}, ${cue.subtitle}`}
                 data-cursor="pointer"
@@ -179,7 +207,7 @@ export const SoundboardSection: React.FC = () => {
                 <h3 className="text-sm font-extrabold text-slate-900 font-mono mb-0.5">{cue.title}</h3>
                 <div className="text-xs text-pop-forest font-bold mb-2">{cue.subtitle}</div>
                 <p className="text-xs text-slate-600 leading-relaxed font-normal">{cue.desc}</p>
-              </button>
+              </motion.button>
             );
           })}
         </div>
