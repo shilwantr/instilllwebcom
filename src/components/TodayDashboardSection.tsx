@@ -28,6 +28,7 @@ export const TodayDashboardSection: React.FC = () => {
   const [isFavorited, setIsFavorited] = useState(false);
   const [selectedMood, setSelectedMood] = useState<string>('Okay');
   const [waterMl, setWaterMl] = useState(750);
+  const [dashboardTheme, setDashboardTheme] = useState<'light' | 'dark'>('light');
   const [history, setHistory] = useState<number[]>([750]);
   const [steps, setSteps] = useState(4820);
   const [scrubberDay, setScrubberDay] = useState(4);
@@ -388,31 +389,77 @@ export const TodayDashboardSection: React.FC = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 flex flex-col items-center"
           >
+            {/* Theme Variant Switcher */}
+            <div className="flex items-center gap-2 mb-4 p-1.5 rounded-full bg-white border-2 border-slate-900/10 shadow-cartoon-sm z-20">
+              <button
+                type="button"
+                onClick={() => {
+                  setDashboardTheme('light');
+                  soundEngine.playScrubTick();
+                }}
+                data-cursor="pointer"
+                aria-label="Switch mockup to Clean White theme"
+                className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
+                  dashboardTheme === 'light'
+                    ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                    : 'text-slate-600 hover:text-slate-950'
+                }`}
+              >
+                Clean White (CW)
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setDashboardTheme('dark');
+                  soundEngine.playScrubTick();
+                }}
+                data-cursor="pointer"
+                aria-label="Switch mockup to Ferris Wheel theme"
+                className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
+                  dashboardTheme === 'dark'
+                    ? 'bg-slate-900 text-white shadow-sm'
+                    : 'text-slate-600 hover:text-slate-950'
+                }`}
+              >
+                Ferris Wheel (Dark)
+              </button>
+            </div>
+
             <AdaptiveScreenshotFrame
-              src="./assets/screenshots/dashboard-light.jpeg"
-              alt="inStill Light Dashboard Clean White"
+              src={
+                dashboardTheme === 'light'
+                  ? './assets/screenshots/dashboard-light.jpeg'
+                  : './assets/screenshots/dashboard-dark.jpeg'
+              }
+              alt={`inStill Dashboard ${dashboardTheme === 'light' ? 'Clean White' : 'Ferris Wheel Dark'}`}
               orientation="vertical"
               tiltDirection="right"
-              glowColor="rgba(210, 245, 108, 0.45)"
-              badge="Clean White (CW) Theme"
+              glowColor={dashboardTheme === 'light' ? 'rgba(210, 245, 108, 0.45)' : 'rgba(203, 180, 245, 0.45)'}
+              badge={dashboardTheme === 'light' ? 'Clean White (CW) Theme' : 'Ferris Wheel (Dark) Theme'}
               hotspots={[
                 {
                   x: 50,
-                  y: 19,
-                  label: 'Clean Porcelain Canvas',
-                  detail: 'High-contrast slate typography meeting WCAG AAA legibility with frosted glass borders.',
+                  y: 22,
+                  label: 'Daily Reflection Card',
+                  detail: 'Curated daily wisdom quote with instant rotation and favorite toggle.',
                 },
                 {
                   x: 50,
-                  y: 44,
-                  label: 'Interactive Mood Chips',
-                  detail: 'Spring bounce animation on selection with custom tactile sound cues.',
+                  y: 42,
+                  label: '5-State Mood Picker',
+                  detail: 'Bio-expressive mood chips (Happy, Okay, Low, Anxious, Tired) with micro-bounce animations.',
                 },
                 {
-                  x: 50,
-                  y: 75,
-                  label: 'Hardware Walking Sensor',
-                  detail: 'Direct device pedometer telemetry stream calculating distance and active calories.',
+                  x: 28,
+                  y: 68,
+                  label: 'Guided Breathwork Activity',
+                  detail: 'Single-tap quick launch into 5-minute Box Breathing and 4-7-8 relaxing protocols.',
+                },
+                {
+                  x: 72,
+                  y: 68,
+                  label: 'Hydration Telemetry',
+                  detail: 'Calibrated daily 2.5L water tracker with quick +250ml logging.',
                 },
               ]}
             />

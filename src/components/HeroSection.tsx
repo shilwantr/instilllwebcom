@@ -17,7 +17,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onThemeSelect,
   onOpenSoundModal,
 }) => {
-  const [selectedDashboardVariant, setSelectedDashboardVariant] = useState<'light' | 'dark' | 'cosmic'>('light');
+  const [selectedDashboardVariant, setSelectedDashboardVariant] = useState<'light' | 'dark' | 'cosmic' | 'mascot'>('light');
   const heroRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -36,6 +36,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     light: './assets/screenshots/dashboard-light.jpeg',
     dark: './assets/screenshots/dashboard-dark.jpeg',
     cosmic: './assets/screenshots/dashboard-cosmic.jpeg',
+    mascot: './assets/screenshots/splash-mascot.jpeg',
   };
 
   const themePills: { id: LivingTheme; label: string }[] = [
@@ -147,7 +148,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <CartoonStickerCluster />
 
           {/* Theme Variant Tabs for Mockup */}
-          <div className="flex items-center gap-2 mb-4 p-1.5 rounded-full bg-white border-2 border-slate-900/10 shadow-cartoon-sm z-20">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mb-4 p-1.5 rounded-full bg-white border-2 border-slate-900/10 shadow-cartoon-sm z-20">
             <button
               onClick={() => {
                 setSelectedDashboardVariant('light');
@@ -155,7 +156,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               }}
               data-cursor="pointer"
               aria-label="Switch mockup to Clean White theme"
-              className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
+              className={`px-3.5 py-1.5 text-xs font-bold rounded-full transition-all ${
                 selectedDashboardVariant === 'light'
                   ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
                   : 'text-slate-600 hover:text-slate-950'
@@ -170,9 +171,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               }}
               data-cursor="pointer"
               aria-label="Switch mockup to Ferris Wheel theme"
-              className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
+              className={`px-3.5 py-1.5 text-xs font-bold rounded-full transition-all ${
                 selectedDashboardVariant === 'dark'
-                  ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                  ? 'bg-slate-900 text-white shadow-sm'
                   : 'text-slate-600 hover:text-slate-950'
               }`}
             >
@@ -185,7 +186,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               }}
               data-cursor="pointer"
               aria-label="Switch mockup to Cosmic Dusk theme"
-              className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
+              className={`px-3.5 py-1.5 text-xs font-bold rounded-full transition-all ${
                 selectedDashboardVariant === 'cosmic'
                   ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
                   : 'text-slate-600 hover:text-slate-950'
@@ -193,36 +194,77 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             >
               Cosmic Dusk
             </button>
+            <button
+              onClick={() => {
+                setSelectedDashboardVariant('mascot');
+                soundEngine.playCatPurr();
+              }}
+              data-cursor="pointer"
+              aria-label="Switch mockup to Splash Mascot"
+              className={`px-3.5 py-1.5 text-xs font-bold rounded-full transition-all flex items-center gap-1 ${
+                selectedDashboardVariant === 'mascot'
+                  ? 'bg-pop-lavender text-slate-900 border border-slate-900/20 shadow-sm'
+                  : 'text-slate-600 hover:text-slate-950'
+              }`}
+            >
+              <span>🐱</span>
+              <span>Mascot</span>
+            </button>
           </div>
 
           {/* Adaptive Phone Mockup in Light Porcelain Frame */}
           <AdaptiveScreenshotFrame
             src={dashboardImages[selectedDashboardVariant]}
-            alt="inStill Today Dashboard"
+            alt={`inStill ${selectedDashboardVariant === 'mascot' ? 'Mascot Splash' : 'Dashboard'}`}
             orientation="vertical"
             tiltDirection="left"
-            glowColor="rgba(210, 245, 108, 0.5)"
-            badge="DashboardScreen.kt"
-            hotspots={[
-              {
-                x: 48,
-                y: 22,
-                label: 'Daily Reflection',
-                detail: 'Dynamic daily wisdom quote with favorite heart and instant re-roll interactions.',
-              },
-              {
-                x: 48,
-                y: 43,
-                label: '5-State Mood Bar',
-                detail: 'Tactile mood check-in with spring physics and gentle haptic acoustic feedback.',
-              },
-              {
-                x: 48,
-                y: 63,
-                label: 'Glass Bubble Breathwork',
-                detail: 'Instant quick-launch for guided breath sessions with animated progress badge.',
-              },
-            ]}
+            glowColor={selectedDashboardVariant === 'mascot' ? 'rgba(203, 180, 245, 0.6)' : 'rgba(210, 245, 108, 0.5)'}
+            badge={
+              selectedDashboardVariant === 'mascot'
+                ? 'inSTILLL • Welcome Splash'
+                : selectedDashboardVariant === 'cosmic'
+                ? 'Cosmic Dusk • 60 FPS'
+                : selectedDashboardVariant === 'dark'
+                ? 'Ferris Wheel • Fluid'
+                : 'DashboardScreen.kt'
+            }
+            hotspots={
+              selectedDashboardVariant === 'mascot'
+                ? [
+                    {
+                      x: 50,
+                      y: 45,
+                      label: 'Cuddling Cats Mascot',
+                      detail: 'The yin-yang feline companions embodying unconditional warmth, tranquility, and presence.',
+                    },
+                    {
+                      x: 50,
+                      y: 59,
+                      label: 'inSTILLL Identity',
+                      detail: 'Mindful presence & daily balance ecosystem crafted for genuine neurological peace.',
+                    },
+                  ]
+                : [
+                    {
+                      x: 48,
+                      y: 22,
+                      label: 'Daily Reflection',
+                      detail: 'Dynamic daily wisdom quote with favorite heart and instant re-roll interactions.',
+                    },
+                    {
+                      x: 48,
+                      y: 43,
+                      label: '5-State Mood Bar',
+                      detail: 'Tactile mood check-in with spring physics and gentle haptic acoustic feedback.',
+                    },
+                    {
+                      x: 48,
+                      y: 63,
+                      label: 'Glass Bubble Breathwork',
+                      detail: 'Instant quick-launch for guided breath sessions with animated progress badge.',
+                    },
+                  ]
+            }
           />
         </motion.div>
       </motion.div>

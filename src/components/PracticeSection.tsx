@@ -339,15 +339,21 @@ export const PracticeSection: React.FC = () => {
                 hotspots={[
                   {
                     x: 50,
-                    y: 52,
-                    label: 'Liquid Meniscus Bubble',
-                    detail: 'Dynamic harmonic wave oscillations synchronizing lungs with parasympathetic tone.',
+                    y: 20,
+                    label: 'Protocol Rhythms',
+                    detail: 'Box Breathing (4-4-4 rhythm), 4-7-8 Deep Sleep, and Resonant Coherence.',
                   },
                   {
                     x: 50,
-                    y: 26,
-                    label: 'Protocol Switcher',
-                    detail: 'Box Breathing, 4-7-8 Relaxing, and HRV resonance protocols.',
+                    y: 50,
+                    label: 'Liquid Bubble Orb',
+                    detail: 'Harmonic 60 FPS fluid meniscus expanding and contracting with guided inhalation prompts.',
+                  },
+                  {
+                    x: 50,
+                    y: 74,
+                    label: 'Session Timer Slider',
+                    detail: 'Configurable countdown timer with gentle Tibetan singing bowl chimes on completion.',
                   },
                 ]}
               />

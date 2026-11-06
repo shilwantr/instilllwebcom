@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Phone, Shield, Bell, HeartHandshake } from 'lucide-react';
+import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
 import { soundEngine } from '../utils/audio';
 
 export const ProfileLifelineSection: React.FC = () => {
@@ -19,6 +20,7 @@ export const ProfileLifelineSection: React.FC = () => {
 
   const springConfig = { damping: 26, stiffness: 120, mass: 0.5 };
   const auraY = useSpring(useTransform(scrollYProgress, [0, 1], [-45, 45]), springConfig);
+  const rightColY = useSpring(useTransform(scrollYProgress, [0, 1], [25, -25]), springConfig);
 
   const toggleReminder = (key: keyof typeof reminders) => {
     soundEngine.playStepClick();
@@ -54,56 +56,57 @@ export const ProfileLifelineSection: React.FC = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* 988 Suicide & Crisis Lifeline Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-8 border-4 border-rose-400 shadow-cartoon relative overflow-hidden"
-          >
-            <div className="flex items-center gap-3.5 mb-4">
-              <div className="p-3.5 rounded-2xl bg-rose-100 text-rose-700 border-2 border-slate-900 shadow-cartoon-sm">
-                <HeartHandshake className="w-7 h-7" />
-              </div>
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-rose-600">
-                  Immediate Emergency Care
-                </span>
-                <h3 className="text-2xl font-sans font-extrabold text-slate-900">988 Suicide & Crisis Lifeline</h3>
-              </div>
-            </div>
-
-            <p className="text-sm text-slate-700 leading-relaxed mb-6 font-normal">
-              If you or a loved one is navigating overwhelming emotional distress, thoughts of self-harm, or need someone to listen, confidential support is available 24/7/365. Free, caring, and immediate.
-            </p>
-
-            <a
-              href="tel:988"
-              onClick={() => soundEngine.playBreatheBell()}
-              data-cursor="pointer"
-              className="w-full py-3.5 sm:py-4 px-4 rounded-full bg-slate-950 text-white font-bold text-xs sm:text-sm tracking-wide shadow-cartoon hover:bg-slate-800 transition-all flex items-center justify-center gap-2.5 sm:gap-3 group transform hover:-translate-y-0.5 text-center"
+          {/* Left Column: 988 Crisis Lifeline + Gentle Push Reminders */}
+          <div className="lg:col-span-7 flex flex-col gap-6">
+            {/* 988 Suicide & Crisis Lifeline Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-white rounded-3xl p-6 sm:p-8 border-4 border-rose-400 shadow-cartoon relative overflow-hidden"
             >
-              <Phone className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform text-pop-lime flex-shrink-0" />
-              <span>Tap to Call 988 Lifeline (Free & Confidential)</span>
-            </a>
+              <div className="flex items-center gap-3.5 mb-4">
+                <div className="p-3.5 rounded-2xl bg-rose-100 text-rose-700 border-2 border-slate-900 shadow-cartoon-sm">
+                  <HeartHandshake className="w-7 h-7" />
+                </div>
+                <div>
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-rose-600">
+                    Immediate Emergency Care
+                  </span>
+                  <h3 className="text-2xl font-sans font-extrabold text-slate-900">988 Suicide & Crisis Lifeline</h3>
+                </div>
+              </div>
 
-            <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600 mt-5 pt-4 border-t border-slate-100 font-mono font-bold">
-              <span>Text or Call: 988</span>
-              <span>English & Spanish</span>
-              <span>TTY Capable</span>
-            </div>
-          </motion.div>
+              <p className="text-sm text-slate-700 leading-relaxed mb-6 font-normal">
+                If you or a loved one is navigating overwhelming emotional distress, thoughts of self-harm, or need someone to listen, confidential support is available 24/7/365. Free, caring, and immediate.
+              </p>
 
-          {/* Gentle Push Micro-Reminders & Privacy */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 flex flex-col gap-6"
-          >
-            <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-900/10 shadow-cartoon-sm">
+              <a
+                href="tel:988"
+                onClick={() => soundEngine.playBreatheBell()}
+                data-cursor="pointer"
+                className="w-full py-3.5 sm:py-4 px-4 rounded-full bg-slate-950 text-white font-bold text-xs sm:text-sm tracking-wide shadow-cartoon hover:bg-slate-800 transition-all flex items-center justify-center gap-2.5 sm:gap-3 group transform hover:-translate-y-0.5 text-center"
+              >
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform text-pop-lime flex-shrink-0" />
+                <span>Tap to Call 988 Lifeline (Free & Confidential)</span>
+              </a>
+
+              <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600 mt-5 pt-4 border-t border-slate-100 font-mono font-bold">
+                <span>Text or Call: 988</span>
+                <span>English & Spanish</span>
+                <span>TTY Capable</span>
+              </div>
+            </motion.div>
+
+            {/* Gentle Push Micro-Reminders & Privacy */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-900/10 shadow-cartoon-sm"
+            >
               <h3 className="text-base font-bold text-slate-900 mb-4 flex items-center justify-between">
                 <span className="flex items-center gap-2">
                   <Bell className="w-5 h-5 text-amber-500" />
@@ -152,7 +155,52 @@ export const ProfileLifelineSection: React.FC = () => {
                 </span>
                 <span className="text-slate-600 font-mono text-[11px]">Zero Cloud Telemetry</span>
               </div>
-            </div>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Authentic Profile Screenshot Frame */}
+          <motion.div
+            style={{ y: rightColY }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 flex flex-col items-center"
+          >
+            <AdaptiveScreenshotFrame
+              src="./assets/screenshots/profile-account.jpeg"
+              alt="inStill Account & Safety Profile Screen"
+              orientation="vertical"
+              tiltDirection="right"
+              glowColor="rgba(210, 245, 108, 0.45)"
+              badge="ProfileScreen.kt • Identity"
+              hotspots={[
+                {
+                  x: 50,
+                  y: 32,
+                  label: 'Dual-Role Architecture',
+                  detail: 'Client (seeking care) or Therapist (practitioner) identity partition.',
+                },
+                {
+                  x: 50,
+                  y: 44,
+                  label: 'One-Tap Google Sign-In',
+                  detail: 'Zero-setup federated login with biometric keychain integration.',
+                },
+                {
+                  x: 50,
+                  y: 66,
+                  label: 'Autonomous Micro-Reminders',
+                  detail: 'On-device notification engine managing hydration targets and evening wind-downs.',
+                },
+                {
+                  x: 50,
+                  y: 88,
+                  label: 'Instant Channel Diagnostics',
+                  detail: 'Trigger real-time test reminder sound cues and haptic patterns.',
+                },
+              ]}
+            />
           </motion.div>
         </div>
       </div>

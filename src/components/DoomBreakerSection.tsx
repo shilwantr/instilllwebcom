@@ -172,6 +172,26 @@ export const DoomBreakerSection: React.FC = () => {
               tiltDirection="right"
               glowColor="rgba(250, 123, 96, 0.45)"
               badge="Accessibility Monitor"
+              hotspots={[
+                {
+                  x: 82,
+                  y: 24,
+                  label: 'Accessibility Service Toggle',
+                  detail: 'Continuous Android Accessibility Service tracks scroll velocity and duration on-device without harvesting personal keystrokes.',
+                },
+                {
+                  x: 37,
+                  y: 43,
+                  label: 'Configurable Scroll Limit',
+                  detail: 'Adjust intervention thresholds from 1m to 60m with tactile slider stops (configured at 20 mins).',
+                },
+                {
+                  x: 50,
+                  y: 58,
+                  label: 'Selective App Monitoring',
+                  detail: 'Filter feeds like YouTube, Instagram, X (Twitter), Facebook, and Reddit.',
+                },
+              ]}
             />
           </motion.div>
         </div>

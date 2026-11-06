@@ -31,6 +31,7 @@ export const PlayCompanionsSection: React.FC = () => {
   const [reflexState, setReflexState] = useState<'idle' | 'waiting' | 'ready' | 'result'>('idle');
   const [reactionTime, setReactionTime] = useState<number | null>(null);
   const [startTime, setStartTime] = useState<number>(0);
+  const [reflexVariant, setReflexVariant] = useState<'dark' | 'light'>('dark');
 
   // Bubble Pop State
   const [bubbles, setBubbles] = useState([true, true, true, true, true, true, true, true]);
@@ -242,11 +243,31 @@ export const PlayCompanionsSection: React.FC = () => {
             >
               <AdaptiveScreenshotFrame
                 src="./assets/screenshots/play-emo-robot.jpeg"
-                alt="inStill Companion Screen"
+                alt="inStill Mew Mew Companion Screen"
                 orientation="vertical"
                 tiltDirection="right"
                 glowColor="rgba(250, 123, 96, 0.45)"
-                badge="PlaygroundScreen.kt"
+                badge="Mew Mew • Companion"
+                hotspots={[
+                  {
+                    x: 50,
+                    y: 26,
+                    label: 'Interactive Prompt Bubble',
+                    detail: 'Real-time contextual guide reacting to user touch, hoverboard taps, and device tilt.',
+                  },
+                  {
+                    x: 50,
+                    y: 50,
+                    label: 'Bio-Responsive Robot Core',
+                    detail: 'State-driven character with audio-reactive glowing chest orb and expressive OLED eyes.',
+                  },
+                  {
+                    x: 50,
+                    y: 72,
+                    label: 'Action Wheel Controls',
+                    detail: 'Physical physics-based animations: Walk, Jump 🚀, Spin 🌀, Juggle 🔮, and Peekaboo.',
+                  },
+                ]}
               />
             </motion.div>
           </div>
@@ -335,6 +356,20 @@ export const PlayCompanionsSection: React.FC = () => {
                 tiltDirection="left"
                 glowColor="rgba(254, 214, 104, 0.45)"
                 badge="Circus Mode Activated"
+                hotspots={[
+                  {
+                    x: 50,
+                    y: 50,
+                    label: 'OLED Face & Headphone Orbs',
+                    detail: 'Emotional expressions reacting dynamically to calming sounds and mindful interactions.',
+                  },
+                  {
+                    x: 50,
+                    y: 72,
+                    label: 'Playful Action Bar',
+                    detail: 'Explore responsive actions: Walk, Jump 🚀, Spin 🌀, Juggle 🔮, and Peekaboo.',
+                  },
+                ]}
               />
             </div>
           </div>
@@ -429,24 +464,95 @@ export const PlayCompanionsSection: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4"
+              className="lg:col-span-6 flex flex-col gap-3"
             >
-              <AdaptiveScreenshotFrame
-                src="./assets/screenshots/play-game-2048.jpeg"
-                alt="Tile Shift 2048 Game"
-                orientation="vertical"
-                tiltDirection="left"
-                glowColor="rgba(250, 123, 96, 0.4)"
-                badge="Tile Shift 2048"
-              />
-              <AdaptiveScreenshotFrame
-                src="./assets/screenshots/play-game-reflex.jpeg"
-                alt="Reflex Core Frost Game"
-                orientation="vertical"
-                tiltDirection="right"
-                glowColor="rgba(254, 214, 104, 0.4)"
-                badge="Reflex Core"
-              />
+              <div className="flex items-center justify-between px-2">
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">
+                  Mindful Games Showcase
+                </span>
+                <div className="flex items-center gap-1.5 p-1 rounded-full bg-slate-100 border border-slate-200">
+                  <span className="text-[10px] font-mono text-slate-500 pl-2">Reflex Theme:</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setReflexVariant('dark');
+                      soundEngine.playScrubTick();
+                    }}
+                    data-cursor="pointer"
+                    aria-label="Reflex Core Dark Theme"
+                    className={`px-2.5 py-0.5 text-[11px] font-bold rounded-full transition-all ${
+                      reflexVariant === 'dark' ? 'bg-slate-900 text-white shadow-sm' : 'text-slate-600'
+                    }`}
+                  >
+                    Dark
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setReflexVariant('light');
+                      soundEngine.playScrubTick();
+                    }}
+                    data-cursor="pointer"
+                    aria-label="Reflex Core Light Theme"
+                    className={`px-2.5 py-0.5 text-[11px] font-bold rounded-full transition-all ${
+                      reflexVariant === 'light' ? 'bg-pop-lime text-pop-forest shadow-sm' : 'text-slate-600'
+                    }`}
+                  >
+                    Light (CW)
+                  </button>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <AdaptiveScreenshotFrame
+                  src="./assets/screenshots/play-game-2048.jpeg"
+                  alt="Tile Shift 2048 Game"
+                  orientation="vertical"
+                  tiltDirection="left"
+                  glowColor="rgba(250, 123, 96, 0.4)"
+                  badge="Tile Shift 2048"
+                  hotspots={[
+                    {
+                      x: 50,
+                      y: 44,
+                      label: 'Frosted Glass 4x4 Grid',
+                      detail: 'Sensory haptic tile sliding physics with dynamic glassmorphism refraction.',
+                    },
+                    {
+                      x: 50,
+                      y: 81,
+                      label: 'Smooth Board Reset',
+                      detail: 'Instant board shuffle and reset with animated number dispersal.',
+                    },
+                  ]}
+                />
+                <AdaptiveScreenshotFrame
+                  src={
+                    reflexVariant === 'dark'
+                      ? './assets/screenshots/play-game-reflex.jpeg'
+                      : './assets/screenshots/play-reflex-light.jpeg'
+                  }
+                  alt={`Reflex Core Frost Game (${reflexVariant === 'dark' ? 'Dark' : 'Light'})`}
+                  orientation="vertical"
+                  tiltDirection="right"
+                  glowColor="rgba(254, 214, 104, 0.4)"
+                  badge={reflexVariant === 'dark' ? 'Reflex Core (Dark)' : 'Reflex Core (CW)'}
+                  hotspots={[
+                    {
+                      x: 50,
+                      y: 44,
+                      label: 'Sub-Millisecond Touch Timer',
+                      detail: 'Hardware timestamp precision down to 1ms to benchmark motor reflexes and mental presence.',
+                    },
+                    {
+                      x: 50,
+                      y: 62,
+                      label: 'Tap to Frost Sphere',
+                      detail: 'Biofeedback reaction sphere that tests neurological acuity without high-stress adrenaline spikes.',
+                    },
+                  ]}
+                />
+              </div>
             </motion.div>
           </div>
         )}

@@ -7,6 +7,7 @@ import { soundEngine } from '../utils/audio';
 export const JournalSection: React.FC = () => {
   const [metric, setMetric] = useState<'mood' | 'steps' | 'water'>('mood');
   const [interval, setInterval] = useState<'hrs' | 'days' | 'weeks' | 'months'>('days');
+  const [journalView, setJournalView] = useState<'metrics' | 'book'>('metrics');
 
   const [isComposerOpen, setIsComposerOpen] = useState(false);
   const [entryTitle, setEntryTitle] = useState('Evening Stillness');
@@ -64,34 +65,101 @@ export const JournalSection: React.FC = () => {
             transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 flex flex-col items-center order-2 lg:order-1"
           >
-            <AdaptiveScreenshotFrame
-              src="./assets/screenshots/journal-metrics.jpeg"
-              alt="inStill Journal and Telemetry Metrics"
-              orientation="vertical"
-              tiltDirection="left"
-              glowColor="rgba(203, 180, 245, 0.45)"
-              badge="JournalScreen.kt"
-              hotspots={[
-                {
-                  x: 50,
-                  y: 18,
-                  label: 'Quiet Reflections Hub',
-                  detail: 'Secure encrypted diary entries tagged with emotional states and time stamps.',
-                },
-                {
-                  x: 50,
-                  y: 48,
-                  label: 'Hardware Sensor Active',
-                  detail: 'Direct Step Counter sensor telemetry requiring zero battery-draining GPS.',
-                },
-                {
-                  x: 50,
-                  y: 78,
-                  label: '2,500 ml Hydration Target',
-                  detail: 'Real-time intake tracking with single-tap volume increments.',
-                },
-              ]}
-            />
+            {/* View Switcher: Metrics vs Flip Book */}
+            <div className="flex items-center gap-2 mb-4 p-1.5 rounded-full bg-slate-50 border-2 border-slate-900/10 shadow-cartoon-sm z-20">
+              <button
+                type="button"
+                onClick={() => {
+                  setJournalView('metrics');
+                  soundEngine.playScrubTick();
+                }}
+                data-cursor="pointer"
+                aria-label="Switch to Activity & Sensor Telemetry view"
+                className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
+                  journalView === 'metrics'
+                    ? 'bg-pop-lavender text-slate-900 border border-slate-900/20 shadow-sm'
+                    : 'text-slate-600 hover:text-slate-950'
+                }`}
+              >
+                Sensor Telemetry
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setJournalView('book');
+                  soundEngine.playScrubTick();
+                }}
+                data-cursor="pointer"
+                aria-label="Switch to 3D Reflections Flip Book view"
+                className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
+                  journalView === 'book'
+                    ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                    : 'text-slate-600 hover:text-slate-950'
+                }`}
+              >
+                3D Flip Diary
+              </button>
+            </div>
+
+            {journalView === 'metrics' ? (
+              <AdaptiveScreenshotFrame
+                src="./assets/screenshots/journal-metrics.jpeg"
+                alt="inStill Journal and Telemetry Metrics"
+                orientation="vertical"
+                tiltDirection="left"
+                glowColor="rgba(203, 180, 245, 0.45)"
+                badge="JournalScreen.kt • Sensors"
+                hotspots={[
+                  {
+                    x: 50,
+                    y: 18,
+                    label: 'Reflections & Journal Hub',
+                    detail: 'Encrypted diary entries tagged with emotions, steps, and water logs.',
+                  },
+                  {
+                    x: 28,
+                    y: 68,
+                    label: 'Hardware Step Sensor',
+                    detail: 'Direct Step Counter sensor telemetry (7,190 / 10,000 steps - 71%).',
+                  },
+                  {
+                    x: 72,
+                    y: 68,
+                    label: 'Hydration Target Intake',
+                    detail: 'Real-time intake tracking with single-tap +250ml volume increments.',
+                  },
+                ]}
+              />
+            ) : (
+              <AdaptiveScreenshotFrame
+                src="./assets/screenshots/journal-book.jpeg"
+                alt="inStill Interactive Flip Book Diary"
+                orientation="vertical"
+                tiltDirection="left"
+                glowColor="rgba(210, 245, 108, 0.45)"
+                badge="JournalBookView • 3D Flip"
+                hotspots={[
+                  {
+                    x: 50,
+                    y: 14,
+                    label: '3D Page Turn Mechanics',
+                    detail: 'Fluid swipe-to-turn 3D book animation recreating tactile physical stationery.',
+                  },
+                  {
+                    x: 26,
+                    y: 86,
+                    label: 'Creative Writing Tools',
+                    detail: 'Switch seamlessly between keyboard typewriter and freehand pencil sketching.',
+                  },
+                  {
+                    x: 62,
+                    y: 86,
+                    label: 'Bespoke Inks & Typography',
+                    detail: 'Sans, Book, Mono, and Script fonts paired with 6 restorative pastel inks.',
+                  },
+                ]}
+              />
+            )}
           </motion.div>
 
           {/* Right: Interactive Spline Chart & Reflections Composer */}

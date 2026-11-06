@@ -133,22 +133,22 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
             badge="MagSafe Landscape Stand"
             hotspots={[
               {
-                x: 18,
-                y: 12,
-                label: 'Strict DND Policy',
-                detail: 'Mutes all system notifications, app alerts, and haptics via ACCESS_NOTIFICATION_POLICY.',
+                x: 22,
+                y: 11,
+                label: 'Focus Active Pill',
+                detail: 'Automated DND mutes system notifications, alerts, and calls during desk docking.',
               },
               {
                 x: 25,
-                y: 50,
+                y: 48,
                 label: 'Overlapping Pastel Digits',
-                detail: '152sp fluid overlapping numerals rendered with subtle specular drop shadows.',
+                detail: '152sp fluid numerals with soft pastel duotone palettes and glass colon beads.',
               },
               {
-                x: 82,
-                y: 50,
-                label: '270° Circular Battery Gauge',
-                detail: 'Real-time decimal battery percentage with wattage telemetry and thermals.',
+                x: 78,
+                y: 48,
+                label: '270° Telemetry Battery Ring',
+                detail: 'Precision decimal battery percentage (61.20%), 0W charging flow, and 38°C battery thermals.',
               },
             ]}
           />
