@@ -9,6 +9,8 @@ interface NavbarProps {
   onThemeCycle: () => void;
   onOpenClockModal: () => void;
   onOpenSoundModal: () => void;
+  onNavigate?: (path: string) => void;
+  onOpenInfo?: (page: 'science' | 'faq' | 'about' | 'contact' | 'downloads') => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -16,6 +18,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   onThemeCycle,
   onOpenClockModal,
   onOpenSoundModal,
+  onNavigate,
+  onOpenInfo,
 }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -37,13 +41,13 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, []);
 
   const navLinks = [
-    { name: 'Today', href: '#today', id: 'today' },
-    { name: 'Breathe & Sleep', href: '#practice', id: 'practice' },
-    { name: 'Journal', href: '#journal', id: 'journal' },
-    { name: 'Telehealth', href: '#telehealth', id: 'telehealth' },
-    { name: 'Companions', href: '#companions', id: 'companions' },
-    { name: 'Desk Clock', href: '#desk-clock', id: 'desk-clock' },
-    { name: 'Soundboard', href: '#soundboard', id: 'soundboard' },
+    { name: 'Today', href: '/today', id: 'today' },
+    { name: 'Breathe', href: '/breathe', id: 'practice' },
+    { name: 'Journal', href: '/journal', id: 'journal' },
+    { name: 'Telehealth', href: '/telehealth', id: 'telehealth' },
+    { name: 'Companions', href: '/companions', id: 'companions' },
+    { name: 'Desk Clock', href: '/desk-clock', id: 'desk-clock' },
+    { name: 'Soundboard', href: '/soundboard', id: 'soundboard' },
   ];
 
   // Scroll spy to highlight active section as user scrolls
@@ -91,10 +95,17 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Brand Logotype with Sleeping Cats Mascot Logo */}
         <a
-          href="#"
+          href="/"
           data-cursor="pointer"
           className="flex items-center gap-2.5 sm:gap-3 group"
-          onClick={() => soundEngine.playCatPurr()}
+          onClick={(e) => {
+            soundEngine.playCatPurr();
+            if (onNavigate) {
+              e.preventDefault();
+              onNavigate('/');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}
         >
           <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden border-2 border-slate-900/15 shadow-cartoon-sm transition-transform group-hover:scale-110 flex-shrink-0 bg-purple-100">
             <img
@@ -121,7 +132,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                 key={link.name}
                 href={link.href}
                 data-cursor="pointer"
-                onClick={() => soundEngine.playScrubTick()}
+                onClick={(e) => {
+                  soundEngine.playScrubTick();
+                  if (onNavigate) {
+                    e.preventDefault();
+                    onNavigate(link.href);
+                  }
+                }}
                 className={`transition-all relative px-3 py-1.5 rounded-full ${
                   isActive
                     ? 'bg-pop-lime text-pop-forest font-bold shadow-sm'
@@ -244,8 +261,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => {
+                  onClick={(e) => {
                     soundEngine.playScrubTick();
+                    if (onNavigate) {
+                      e.preventDefault();
+                      onNavigate(link.href);
+                    }
                     setMobileMenuOpen(false);
                   }}
                   className={`py-3 px-3 rounded-xl transition-colors flex items-center justify-between ${

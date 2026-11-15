@@ -1,7 +1,32 @@
-# SPA Routing and clean sitemap paths
-/lab  /lab/index.html  200
+# Dedicated Static HTML Pages
 /privacy  /privacy/index.html  200
 /terms  /terms/index.html  200
 /privacy-policy  /privacy-policy/index.html  200
 /privacy-policy/spycam-pro  /privacy-policy/spycam-pro/index.html  200
+
+# Canonical App & Content Routes (Single Page Application Fallbacks)
+/today  /index.html  200
+/practice  /index.html  200
+/breathe  /index.html  200
+/heal  /index.html  200
+/sleep  /index.html  200
+/journal  /index.html  200
+/telehealth  /index.html  200
+/therapy  /index.html  200
+/companions  /index.html  200
+/games  /index.html  200
+/desk-clock  /index.html  200
+/standby  /index.html  200
+/doombreaker  /index.html  200
+/soundboard  /index.html  200
+/safety  /index.html  200
+/themes  /index.html  200
+/science  /index.html  200
+/lab  /index.html  200
+/faq  /index.html  200
+/about  /index.html  200
+/contact  /index.html  200
+/downloads  /index.html  200
+
+# Catch-All SPA Rewrite
 /*  /index.html  200

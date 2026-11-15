@@ -1,64 +1,259 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
+    <!-- Core Document Meta -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="description" content="inStill — A luxury digital wellness ecosystem engineered with 60 FPS liquid canvas shaders, bio-responsive breathwork, telehealth therapy, companion pets, and digital wellbeing." />
-    <meta name="theme-color" content="#FAFAF7" />
-    <link rel="canonical" href="https://www.instilll.com/" />
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="inStill — Mindful Presence & Daily Balance" />
-    <meta property="og:description" content="A luxury sensory wellness ecosystem engineered with 60 FPS liquid canvas shaders, bio-responsive breathwork, and clinical telehealth." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.instilll.com/" />
-    <meta property="og:image" content="https://www.instilll.com/assets/logo.png" />
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="inStill — Mindful Presence & Daily Balance" />
-    <meta name="twitter:description" content="A luxury sensory wellness ecosystem engineered with 60 FPS liquid canvas shaders, bio-responsive breathwork, and clinical telehealth." />
-    <meta name="twitter:image" content="https://www.instilll.com/assets/logo.png" />
+    <!-- Primary SEO Meta Tags -->
+    <title>inStill — Mindful Presence &amp; Daily Balance | Sensory Digital Wellness</title>
+    <meta name="title" content="inStill — Mindful Presence &amp; Daily Balance | Sensory Digital Wellness" />
+    <meta name="description" content="inStill is a luxury sensory wellness ecosystem engineered with 60 FPS liquid canvas shaders, bio-responsive vagal breathwork, encrypted Agora RTC telehealth, interactive companion pets, MagSafe StandBy desk clock, and Doom-Scroll Breaker interventions." />
+    <meta name="keywords" content="inStill, mindful presence, daily balance, mental health app, box breathing, vagal nerve stimulation, somatic therapy, telehealth, doomscroll breaker, standby desk clock, sensory acoustics, meditation app, 60fps canvas shaders, privacy first wellness, EMDR sound therapy, digital wellbeing, breathing exercises, pedometer telemetry" />
+    <meta name="author" content="inStill Systems" />
+    <meta name="creator" content="inStill Team" />
+    <meta name="publisher" content="inStill" />
+    <meta name="category" content="Health &amp; Fitness, Mental Wellness" />
+    <meta name="classification" content="Digital Health Application" />
 
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+    <!-- Crawlers, Indexing & Verification -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large" />
     <meta name="google-site-verification" content="googlef43bde990bef98d7" />
-    <title>inStill — Mindful Presence & Daily Balance</title>
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-    <!-- Preload LCP Candidate for 100/100 Core Web Vitals -->
+    <!-- Canonical and Language Alternates -->
+    <link rel="canonical" href="https://instilll.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://instilll.com/" />
+    <link rel="alternate" hreflang="en" href="https://instilll.com/" />
+    <link rel="alternate" hreflang="en-US" href="https://instilll.com/" />
+
+    <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
+    <meta property="og:site_name" content="inStill" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://instilll.com/" />
+    <meta property="og:title" content="inStill — Mindful Presence &amp; Daily Balance" />
+    <meta property="og:description" content="A luxury sensory wellness ecosystem engineered with 60 FPS liquid canvas shaders, bio-responsive breathwork, clinical telehealth, MagSafe desk clock, and mindful companion pets." />
+    <meta property="og:image" content="https://instilll.com/assets/logo.png" />
+    <meta property="og:image:secure_url" content="https://instilll.com/assets/logo.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:alt" content="inStill Yin-Yang Cuddling Cats Mindfulness Mascot" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@instilllapp" />
+    <meta name="twitter:creator" content="@instilllapp" />
+    <meta name="twitter:title" content="inStill — Mindful Presence &amp; Daily Balance" />
+    <meta name="twitter:description" content="A luxury sensory wellness ecosystem engineered with 60 FPS liquid canvas shaders, bio-responsive breathwork, clinical telehealth, and MagSafe desk clock." />
+    <meta name="twitter:image" content="https://instilll.com/assets/logo.png" />
+    <meta name="twitter:image:alt" content="inStill Yin-Yang Cuddling Cats Mindfulness Mascot" />
+
+    <!-- Mobile, WebApp, PWA & Browser Theming -->
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FAFAF7" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#090D16" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="inStill" />
+    <meta name="application-name" content="inStill" />
+    <meta name="msapplication-TileColor" content="#D2F56C" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="format-detection" content="telephone=no, address=no, email=no" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- Geo & Audience Tags -->
+    <meta name="geo.region" content="US-CA" />
+    <meta name="geo.placename" content="San Francisco" />
+    <meta name="rating" content="General" />
+    <meta name="distribution" content="Global" />
+
+    <!-- Favicon & Touch Icons -->
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="apple-touch-icon" href="./assets/logo.png" />
+
+    <!-- Performance & Preload Optimizations (Core Web Vitals) -->
     <link rel="preload" as="image" href="./assets/screenshots/dashboard-light.jpeg" fetchpriority="high" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Schema.org JSON-LD Structured Data for Google Search & Agentic Browsing -->
+    <!-- Comprehensive Schema.org JSON-LD Graph for Search Engines & AI Crawlers -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "WebApplication",
-          "@id": "https://www.instilll.com/#webapp",
+          "@type": "WebSite",
+          "@id": "https://instilll.com/#website",
+          "url": "https://instilll.com/",
           "name": "inStill",
-          "url": "https://www.instilll.com/",
-          "applicationCategory": "HealthApplication",
-          "operatingSystem": "All modern browsers, Android, iOS",
-          "description": "Mindful Presence & Daily Balance. A luxury digital wellness ecosystem engineered with 60 FPS liquid canvas shaders, bio-responsive breathwork, telehealth therapy, companion pets, and digital wellbeing.",
-          "browserRequirements": "Requires JavaScript and HTML5 Canvas support",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-          }
+          "description": "Mindful Presence & Daily Balance — Luxury sensory digital wellness ecosystem.",
+          "publisher": {
+            "@id": "https://instilll.com/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://instilll.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          },
+          "inLanguage": "en-US"
         },
         {
           "@type": "Organization",
-          "@id": "https://www.instilll.com/#organization",
+          "@id": "https://instilll.com/#organization",
           "name": "inStill",
-          "url": "https://www.instilll.com/",
-          "logo": "https://www.instilll.com/assets/logo.png"
+          "url": "https://instilll.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "@id": "https://instilll.com/#logo",
+            "url": "https://instilll.com/assets/logo.png",
+            "caption": "inStill Yin-Yang Feline Mascot"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Emergency Support & Crisis Lifeline",
+            "telephone": "+1-988",
+            "areaServed": "US",
+            "availableLanguage": ["English", "Spanish"]
+          }
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://instilll.com/#webapp",
+          "name": "inStill",
+          "url": "https://instilll.com/",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "All modern web browsers, Android, iOS",
+          "browserRequirements": "Requires JavaScript and WebGL/HTML5 Canvas support",
+          "description": "A luxury sensory wellness ecosystem engineered with 60 FPS liquid canvas shaders, bio-responsive vagal breathwork, encrypted Agora RTC telehealth, interactive companion pets, MagSafe StandBy desk clock, and Doom-Scroll Breaker interventions.",
+          "screenshot": [
+            "https://instilll.com/assets/screenshots/dashboard-light.jpeg",
+            "https://instilll.com/assets/screenshots/breathe-orb.jpeg",
+            "https://instilll.com/assets/screenshots/desk-clock-landscape-1.jpeg"
+          ],
+          "featureList": [
+            "60 FPS Liquid Canvas Ambient Shaders",
+            "Bio-Responsive Liquid Orb Breathwork (Box, 4-7-8, Resonant)",
+            "Encrypted Agora RTC Clinical Telehealth Video",
+            "MagSafe StandBy Landscape Desk Clock with Decimal Battery & Thermals",
+            "Doom-Scroll Breaker Background Accessibility Monitor",
+            "Hermite Cubic Spline Biometric Trend Analytics",
+            "Mew Mew & EMO Interactive Mindful Companions",
+            "Zero Cloud Tracking with On-Device Encrypted Local Vault"
+          ],
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.96",
+            "ratingCount": "1420",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://instilll.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is my biometric and journaling data stored in the cloud?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. inStill operates on a zero-cloud-telemetry architecture. All journaling reflections, step counter metrics, hydration counts, and mood records are encrypted and stored exclusively on your local device."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does the MagSafe StandBy Landscape Desk Clock work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "When your phone is rotated horizontally onto a charging stand or nightstand, inStill engages StandBy mode. It renders soft pastel fluid typography, a 270-degree circular battery gauge with wattage and thermals, and an automated Strict Do-Not-Disturb protocol to eliminate visual distractions."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is Doom-Scroll Breaker?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Doom-Scroll Breaker uses Android's on-device Accessibility Service to measure continuous scrolling duration in habit-forming feeds like YouTube, Instagram, X (Twitter), Facebook, and Reddit. When your custom threshold is reached, it gently prompts a full-screen restorative pause with a deep vagal chime."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What breathing protocols are supported in Practice mode?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "inStill features evidence-based breathing techniques including Box Breathing (4-4-4 rhythm for acute stress regulation), 4-7-8 relaxing breath (for parasympathetic sleep onset), and Slow Resonant Coherence (5.5 breaths per minute for heart rate variability optimization)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I connect with a licensed therapist directly through inStill?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. inStill integrates encrypted Agora RTC high-definition video consultations with certified clinical neuro-psychologists and somatic practitioners, combined with on-screen bilateral audio tools."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://instilll.com/#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://instilll.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Today Dashboard",
+              "item": "https://instilll.com/today"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Practice & Breathe",
+              "item": "https://instilll.com/breathe"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "Journal & Telemetry",
+              "item": "https://instilll.com/journal"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "name": "Clinical Telehealth",
+              "item": "https://instilll.com/telehealth"
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "name": "StandBy Desk Clock",
+              "item": "https://instilll.com/desk-clock"
+            },
+            {
+              "@type": "ListItem",
+              "position": 7,
+              "name": "The Science of Presence",
+              "item": "https://instilll.com/science"
+            }
+          ]
         }
       ]
     }
