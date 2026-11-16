@@ -37,12 +37,12 @@ export const InstilllWordmark: React.FC<InstilllWordmarkProps> = ({
 
   const isMonoChrome = variant === 'monochrome';
 
-  // Render letters according to casing
+  // Render letters according to casing (stem has NO 'l', exactly 3 L's follow)
   const prefix = casing === 'lower' ? 'in' : casing === 'title' ? 'in' : 'in';
-  const stem = casing === 'lower' ? 'stil' : casing === 'title' ? 'Sti' : 'STIL';
-  const l1 = casing === 'lower' ? 'l' : casing === 'title' ? 'l' : 'L';
-  const l2 = casing === 'lower' ? 'l' : casing === 'title' ? 'l' : 'L';
-  const l3 = casing === 'lower' ? 'l' : casing === 'title' ? 'l' : 'L';
+  const stem = casing === 'lower' ? 'sti' : casing === 'title' ? 'Sti' : 'STI';
+  const l1 = casing === 'lower' ? 'l' : casing === 'title' ? 'L' : 'L';
+  const l2 = casing === 'lower' ? 'l' : casing === 'title' ? 'L' : 'L';
+  const l3 = casing === 'lower' ? 'l' : casing === 'title' ? 'L' : 'L';
 
   return (
     <span

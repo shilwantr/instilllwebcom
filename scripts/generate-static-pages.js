@@ -976,7 +976,7 @@ function generateHtml(page) {
         <div class="brand-logo">
           <img src="../assets/logo.png" alt="instilll Logo" />
         </div>
-        <div class="brand-name">inSTIL<span class="l1">L</span><span class="l2">L</span><span class="l3">L</span></div>
+        <div class="brand-name">inSTI<span class="l1">L</span><span class="l2">L</span><span class="l3">L</span></div>
       </a>
 
       <div class="badge">${page.icon} ${page.slug}</div>
