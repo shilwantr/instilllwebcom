@@ -215,7 +215,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Adaptive Phone Mockup in Light Porcelain Frame */}
           <AdaptiveScreenshotFrame
             src={dashboardImages[selectedDashboardVariant]}
-            alt={`inStill ${selectedDashboardVariant === 'mascot' ? 'Mascot Splash' : 'Dashboard'}`}
+            alt={`instilll ${selectedDashboardVariant === 'mascot' ? 'Mascot Splash' : 'Dashboard'}`}
             orientation="vertical"
             tiltDirection="left"
             glowColor={selectedDashboardVariant === 'mascot' ? 'rgba(203, 180, 245, 0.6)' : 'rgba(210, 245, 108, 0.5)'}

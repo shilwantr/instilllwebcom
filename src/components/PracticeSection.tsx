@@ -331,7 +331,7 @@ export const PracticeSection: React.FC = () => {
             >
               <AdaptiveScreenshotFrame
                 src="./assets/screenshots/breathe-orb.jpeg"
-                alt="inStill Breathe Screen"
+                alt="instilll Breathe Screen"
                 orientation="vertical"
                 tiltDirection="right"
                 glowColor="rgba(210, 245, 108, 0.45)"
@@ -448,7 +448,7 @@ export const PracticeSection: React.FC = () => {
             >
               <AdaptiveScreenshotFrame
                 src="./assets/screenshots/heal-music.jpeg"
-                alt="inStill Heal Bilateral Music Screen"
+                alt="instilll Heal Bilateral Music Screen"
                 orientation="vertical"
                 tiltDirection="left"
                 glowColor="rgba(203, 180, 245, 0.45)"
@@ -523,7 +523,7 @@ export const PracticeSection: React.FC = () => {
                 badge={sleepScenes[selectedSleepScene].name}
               />
               <p className="mt-4 text-xs font-mono font-bold text-slate-600 text-center">
-                Original vector artwork designed for inStill’s restorative sleep immersion.
+                Original vector artwork designed for instilll’s restorative sleep immersion.
               </p>
             </motion.div>
           </div>

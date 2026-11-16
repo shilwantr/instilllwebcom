@@ -127,7 +127,7 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
 
           <AdaptiveScreenshotFrame
             src="./assets/screenshots/desk-clock-landscape-1.jpeg"
-            alt="inStill StandBy Landscape Desk Clock"
+            alt="instilll StandBy Landscape Desk Clock"
             orientation="horizontal"
             glowColor={currentPal.glow}
             badge="MagSafe Landscape Stand"
@@ -148,7 +148,7 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
                 x: 78,
                 y: 48,
                 label: '270° Telemetry Battery Ring',
-                detail: 'Precision decimal battery percentage (61.20%), 0W charging flow, and 38°C battery thermals.',
+                detail: 'Precision decimal battery percentage (78.40%), 0W charging flow, and 38°C battery thermals.',
               },
             ]}
           />

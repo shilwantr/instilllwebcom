@@ -169,7 +169,7 @@ export const ProfileLifelineSection: React.FC = () => {
           >
             <AdaptiveScreenshotFrame
               src="./assets/screenshots/profile-account.jpeg"
-              alt="inStill Account & Safety Profile Screen"
+              alt="instilll Account & Safety Profile Screen"
               orientation="vertical"
               tiltDirection="right"
               glowColor="rgba(210, 245, 108, 0.45)"

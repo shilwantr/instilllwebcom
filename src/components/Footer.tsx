@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
 import { soundEngine } from '../utils/audio';
+import { InstilllWordmark } from './InstilllWordmark';
 
 interface FooterProps {
   onNavigate?: (path: string) => void;
@@ -37,15 +38,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInfo }) => {
               <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-slate-900/15 shadow-cartoon-sm flex-shrink-0 bg-purple-100">
                 <img
                   src="./assets/logo.png"
-                  alt="inStill Logo"
+                  alt="instilll Logo"
                   width="44"
                   height="44"
                   className="w-full h-full object-cover block"
                 />
               </div>
-              <span className="font-sans text-2xl font-black text-slate-900 tracking-tight">
-                in<span className="font-extrabold">STILL</span>
-              </span>
+              <InstilllWordmark size="md" variant="brand" showDomain={true} />
             </div>
             <p className="text-slate-700 text-sm leading-relaxed max-w-sm mb-6 font-normal">
               Mindful Presence &amp; Daily Balance. A luxury sensory wellness ecosystem engineered with 60 FPS liquid canvas shaders, bio-responsive breathwork, and clinical telehealth.
@@ -161,7 +160,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInfo }) => {
               </li>
               <li>
                 <a href="/about" onClick={(e) => handleLinkClick(e, '/about', 'about')} className="hover:text-pop-forest transition-colors">
-                  About inStill
+                  About instilll
                 </a>
               </li>
               <li>
@@ -230,7 +229,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInfo }) => {
           </div>
 
           <div className="flex items-center gap-6 font-mono text-[11px]">
-            <span>&copy; {new Date().getFullYear()} inStill Systems. All rights reserved.</span>
+            <span>&copy; {new Date().getFullYear()} instilll Systems. All rights reserved.</span>
           </div>
         </div>
       </div>

@@ -60,7 +60,7 @@ export const InfoPageModal: React.FC<InfoPageModalProps> = ({ page, onClose }) =
                 Clinical Science &amp; Biometric Mathematics
               </h2>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 font-normal">
-                Digital wellness should not rely on vague mysticism. inStill is built on peer-reviewed principles of Polyvagal Theory, Respiratory Sinus Arrhythmia (RSA), and neuro-aesthetic 60 FPS visual entrainment.
+                Digital wellness should not rely on vague mysticism. instilll is built on peer-reviewed principles of Polyvagal Theory, Respiratory Sinus Arrhythmia (RSA), and neuro-aesthetic 60 FPS visual entrainment.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -100,18 +100,18 @@ export const InfoPageModal: React.FC<InfoPageModalProps> = ({ page, onClose }) =
                 <span>Frequently Asked Questions</span>
               </div>
               <h2 className="text-2xl sm:text-4xl font-sans font-extrabold tracking-tight mb-4">
-                Everything You Need to Know About inStill
+                Everything You Need to Know About instilll
               </h2>
 
               <div className="space-y-4 mb-8">
                 <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200">
                   <h3 className="text-sm font-bold text-slate-900 mb-1.5">Is my journaling or step data stored in the cloud?</h3>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    No. inStill adheres to a strict local-first architecture. All reflections, mood check-ins, step counters, and hydration counts reside strictly inside your device’s sandboxed encrypted storage.
+                    No. instilll adheres to a strict local-first architecture. All reflections, mood check-ins, step counters, and hydration counts reside strictly inside your device’s sandboxed encrypted storage.
                   </p>
                 </div>
                 <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200">
-                  <h3 className="text-sm font-bold text-slate-900 mb-1.5">Does inStill work completely offline?</h3>
+                  <h3 className="text-sm font-bold text-slate-900 mb-1.5">Does instilll work completely offline?</h3>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     Yes. The core application—Breathe orb, StandBy desk clock, Journal, offline soundboard, and DoomScroll Breaker—functions 100% offline without needing a network connection.
                   </p>
@@ -119,7 +119,7 @@ export const InfoPageModal: React.FC<InfoPageModalProps> = ({ page, onClose }) =
                 <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200">
                   <h3 className="text-sm font-bold text-slate-900 mb-1.5">How does the MagSafe StandBy Landscape Desk Clock work?</h3>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Rotate your phone horizontally on any MagSafe stand or bedside dock. inStill automatically engages StandBy mode, displaying 152sp fluid numerals, 270° battery telemetry, and strict Do-Not-Disturb.
+                    Rotate your phone horizontally on any MagSafe stand or bedside dock. instilll automatically engages StandBy mode, displaying 152sp fluid numerals, 270° battery telemetry, and strict Do-Not-Disturb.
                   </p>
                 </div>
                 <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200">
@@ -143,7 +143,7 @@ export const InfoPageModal: React.FC<InfoPageModalProps> = ({ page, onClose }) =
                 Software Engineered to Return You to Yourself
               </h2>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 font-normal">
-                Modern consumer technology was largely designed to colonize human attention through infinite feeds, red notification badges, and cortisol-inducing alerts. inStill was founded on the opposite premise: what if software was engineered specifically to protect human presence?
+                Modern consumer technology was largely designed to colonize human attention through infinite feeds, red notification badges, and cortisol-inducing alerts. instilll was founded on the opposite premise: what if software was engineered specifically to protect human presence?
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -221,10 +221,10 @@ export const InfoPageModal: React.FC<InfoPageModalProps> = ({ page, onClose }) =
                 <span>Cross-Platform Installations</span>
               </div>
               <h2 className="text-2xl sm:text-4xl font-sans font-extrabold tracking-tight mb-4">
-                Experience inStill Anywhere
+                Experience instilll Anywhere
               </h2>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 font-normal">
-                inStill is engineered to run seamlessly across all your screens: web, Android APK, iOS Progressive Web App (PWA), and MagSafe landscape desk docking.
+                instilll is engineered to run seamlessly across all your screens: web, Android APK, iOS Progressive Web App (PWA), and MagSafe landscape desk docking.
               </p>
 
               <div className="space-y-4 mb-8">
@@ -249,7 +249,7 @@ export const InfoPageModal: React.FC<InfoPageModalProps> = ({ page, onClose }) =
 
           {/* Modal Footer CTA */}
           <div className="flex items-center justify-between pt-6 border-t border-slate-100">
-            <span className="text-xs font-mono text-slate-500 font-semibold">inStill • Mindful Presence &amp; Daily Balance</span>
+            <span className="text-xs font-mono text-slate-500 font-semibold">instilll • Mindful Presence &amp; Daily Balance</span>
             <button
               onClick={() => {
                 soundEngine.playScrubTick();
@@ -258,7 +258,7 @@ export const InfoPageModal: React.FC<InfoPageModalProps> = ({ page, onClose }) =
               data-cursor="pointer"
               className="px-6 py-2.5 rounded-full bg-slate-950 text-white text-xs font-bold shadow-cartoon hover:bg-slate-800 transition-all"
             >
-              Continue to inStill
+              Continue to instilll
             </button>
           </div>
         </motion.div>

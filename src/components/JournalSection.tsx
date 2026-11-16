@@ -104,7 +104,7 @@ export const JournalSection: React.FC = () => {
             {journalView === 'metrics' ? (
               <AdaptiveScreenshotFrame
                 src="./assets/screenshots/journal-metrics.jpeg"
-                alt="inStill Journal and Telemetry Metrics"
+                alt="instilll Journal and Telemetry Metrics"
                 orientation="vertical"
                 tiltDirection="left"
                 glowColor="rgba(203, 180, 245, 0.45)"
@@ -120,7 +120,7 @@ export const JournalSection: React.FC = () => {
                     x: 28,
                     y: 68,
                     label: 'Hardware Step Sensor',
-                    detail: 'Direct Step Counter sensor telemetry (7,190 / 10,000 steps - 71%).',
+                    detail: 'Direct Step Counter sensor telemetry (3,746 / 10,000 steps - 37%).',
                   },
                   {
                     x: 72,
@@ -133,7 +133,7 @@ export const JournalSection: React.FC = () => {
             ) : (
               <AdaptiveScreenshotFrame
                 src="./assets/screenshots/journal-book.jpeg"
-                alt="inStill Interactive Flip Book Diary"
+                alt="instilll Interactive Flip Book Diary"
                 orientation="vertical"
                 tiltDirection="left"
                 glowColor="rgba(210, 245, 108, 0.45)"

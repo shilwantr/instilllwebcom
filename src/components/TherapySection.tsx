@@ -64,7 +64,7 @@ export const TherapySection: React.FC = () => {
           </h2>
           <p className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed">
             Encrypted HD video consultations with licensed clinicians, integrated directly with
-            inStill biometric telemetry and bilateral audio protocols.
+            instilll biometric telemetry and bilateral audio protocols.
           </p>
 
           {/* Dual-Role Switcher */}

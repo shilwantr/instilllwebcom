@@ -243,7 +243,7 @@ export const PlayCompanionsSection: React.FC = () => {
             >
               <AdaptiveScreenshotFrame
                 src="./assets/screenshots/play-emo-robot.jpeg"
-                alt="inStill Mew Mew Companion Screen"
+                alt="instilll Mew Mew Companion Screen"
                 orientation="vertical"
                 tiltDirection="right"
                 glowColor="rgba(250, 123, 96, 0.45)"

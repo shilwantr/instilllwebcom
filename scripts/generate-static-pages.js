@@ -9,9 +9,9 @@ const publicDir = path.resolve(__dirname, '../public');
 const pages = [
   {
     slug: 'today',
-    title: 'Today Dashboard — Mindful Presence & Daily Balance | inStill',
-    desc: 'Explore the inStill Today Dashboard with daily reflection quotes, 5-state bio-expressive mood picker, guided breathwork, and hydration telemetry.',
-    keywords: 'inStill today dashboard, mindful presence, daily reflection, mood tracker, hydration counter, breathwork launcher, mental wellbeing',
+    title: 'Today Dashboard — Mindful Presence & Daily Balance | instilll',
+    desc: 'Explore the instilll Today Dashboard with daily reflection quotes, 5-state bio-expressive mood picker, guided breathwork, and hydration telemetry.',
+    keywords: 'instilll today dashboard, mindful presence, daily reflection, mood tracker, hydration counter, breathwork launcher, mental wellbeing',
     icon: '🌸',
     headline: 'Today Dashboard',
     tagline: 'Mindful Presence & Daily Balance',
@@ -37,11 +37,11 @@ const pages = [
       </div>
     `,
     ctaHref: '/#today',
-    ctaText: 'Open Today Dashboard in inStill'
+    ctaText: 'Open Today Dashboard in instilll'
   },
   {
     slug: 'practice',
-    title: 'Mindful Practice Suite: Breathe, Heal & Sleep | inStill',
+    title: 'Mindful Practice Suite: Breathe, Heal & Sleep | instilll',
     desc: 'Evidence-based mental wellness routines: Guided Box Breathing, acoustic bilateral sound therapy, and restorative sleep scenes.',
     keywords: 'mindful practice, mental wellness routines, breathe heal sleep, vagus nerve stimulation, sleep ambient scenes, relaxation routines',
     icon: '🧘',
@@ -69,14 +69,14 @@ const pages = [
   },
   {
     slug: 'breathe',
-    title: 'Bio-Responsive Breathwork & Box Breathing | inStill',
-    desc: 'Practice Box Breathing (4-4-4), 4-7-8 deep sleep routines, and resonant coherence with inStill\'s 60 FPS harmonic liquid bubble orb.',
+    title: 'Bio-Responsive Breathwork & Box Breathing | instilll',
+    desc: 'Practice Box Breathing (4-4-4), 4-7-8 deep sleep routines, and resonant coherence with instilll\'s 60 FPS harmonic liquid bubble orb.',
     keywords: 'box breathing, 4-7-8 breathing, resonant breathing, vagus nerve exercises, liquid bubble orb, hrv biofeedback, breathwork app',
     icon: '🫧',
     headline: 'Bio-Responsive Breathwork',
     tagline: 'Harmonic 60 FPS Liquid Bubble Orb',
     content: `
-      <p>Breathing is the only autonomic nervous system function under voluntary conscious control. inStill's <strong>Liquid Bubble Orb</strong> expands and contracts with fluid harmonic oscillations, guiding your diaphragm into deep parasympathetic tone.</p>
+      <p>Breathing is the only autonomic nervous system function under voluntary conscious control. instilll's <strong>Liquid Bubble Orb</strong> expands and contracts with fluid harmonic oscillations, guiding your diaphragm into deep parasympathetic tone.</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>Box Breathing (4-4-4-4)</strong>
@@ -97,14 +97,14 @@ const pages = [
   },
   {
     slug: 'heal',
-    title: 'Bilateral EMDR Acoustic Sound Therapy | inStill',
+    title: 'Bilateral EMDR Acoustic Sound Therapy | instilll',
     desc: 'Alternating bilateral acoustic stimulation and somatic soundscapes engineered to soothe acute anxiety, balance brainwaves, and calm the autonomic nervous system.',
     keywords: 'bilateral audio, emdr sound therapy, acoustic stimulation, somatic healing, anxiety relief, binaural beats, brainwave entrainment',
     icon: '🎧',
     headline: 'Bilateral Acoustic Sound Therapy',
     tagline: 'Alternating Stereo Panning for Limbic Calming',
     content: `
-      <p>Inspired by somatic psychotherapy and bilateral eye movement desensitization (EMDR), inStill streams <strong>pure acoustic instruments</strong>—harps, flutes, and singing bowls—gently panning between left and right auditory channels to dissipate emotional charge.</p>
+      <p>Inspired by somatic psychotherapy and bilateral eye movement desensitization (EMDR), instilll streams <strong>pure acoustic instruments</strong>—harps, flutes, and singing bowls—gently panning between left and right auditory channels to dissipate emotional charge.</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>Bilateral Tranquility</strong>
@@ -125,14 +125,14 @@ const pages = [
   },
   {
     slug: 'sleep',
-    title: 'Restorative Sleep Art & Ambient Soundscapes | inStill',
+    title: 'Restorative Sleep Art & Ambient Soundscapes | instilll',
     desc: 'Immerse in moonlit rain on glass, lotus pond waters, and summer hillside breezes with gentle Tibetan wind-down chimes.',
     keywords: 'sleep soundscapes, moonlit rain, ambient sleep art, sleep meditation, deep rest, insomnia relief, evening wind down',
     icon: '🌙',
     headline: 'Restorative Sleep Art',
     tagline: 'Ambient Illustrations & Nocturnal Soundscapes',
     content: `
-      <p>Transition effortlessly into deep delta-wave sleep. inStill pairs original hand-crafted nocturnal art with acoustic environmental recordings to quiet racing evening thoughts.</p>
+      <p>Transition effortlessly into deep delta-wave sleep. instilll pairs original hand-crafted nocturnal art with acoustic environmental recordings to quiet racing evening thoughts.</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>Rain on Cold Glass</strong>
@@ -153,14 +153,14 @@ const pages = [
   },
   {
     slug: 'journal',
-    title: 'Mindful Journal & Biometric Telemetry | inStill',
+    title: 'Mindful Journal & Biometric Telemetry | instilll',
     desc: 'Reflective journaling paired with direct hardware pedometer telemetry, hydration tracking, and 3D page-curling flip book diary.',
     keywords: 'mindful journal, biometric telemetry, pedometer tracking, hydration log, 3D flip book diary, private diary, encrypted journal',
     icon: '📖',
     headline: 'Mindful Journal & Telemetry',
     tagline: 'Encrypted Reflections & Hermite Cubic Splines',
     content: `
-      <p>The inStill <strong>Journal</strong> bridges introspective thought with biological reality. Write freely with typewriter or pencil sketching tools in our 3D page-curling book, while local sensors calculate continuous Hermite cubic spline trajectories of your emotional states, steps, and water intake.</p>
+      <p>The instilll <strong>Journal</strong> bridges introspective thought with biological reality. Write freely with typewriter or pencil sketching tools in our 3D page-curling book, while local sensors calculate continuous Hermite cubic spline trajectories of your emotional states, steps, and water intake.</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>3D Interactive Flip Diary</strong>
@@ -181,14 +181,14 @@ const pages = [
   },
   {
     slug: 'telehealth',
-    title: 'Clinical Somatic Telehealth & Agora RTC Video | inStill',
+    title: 'Clinical Somatic Telehealth & Agora RTC Video | instilll',
     desc: 'Encrypted HD video consultations with certified neuro-psychologists and somatic therapists, synchronized with real-time breathing telemetry.',
     keywords: 'telehealth therapy, agora rtc video, somatic therapy, licensed psychologist, online therapy, emdr telehealth, secure clinical video',
     icon: '🩺',
     headline: 'Clinical Telehealth Suite',
     tagline: 'Encrypted Agora RTC Consultations',
     content: `
-      <p>Connect securely with licensed mental health practitioners directly inside inStill. Consultations feature sub-100ms latency video via Agora RTC, combined with in-session bilateral acoustic panning and synchronous breathing cues.</p>
+      <p>Connect securely with licensed mental health practitioners directly inside instilll. Consultations feature sub-100ms latency video via Agora RTC, combined with in-session bilateral acoustic panning and synchronous breathing cues.</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>Certified Clinical Directory</strong>
@@ -209,14 +209,14 @@ const pages = [
   },
   {
     slug: 'therapy',
-    title: 'Licensed Somatic Therapy & Vagal Regulation | inStill',
+    title: 'Licensed Somatic Therapy & Vagal Regulation | instilll',
     desc: 'Connect with certified somatic clinicians specializing in trauma healing, autonomic nervous system stabilization, and burnout recovery.',
     keywords: 'somatic therapy, vagal regulation, polyvagal therapy, trauma informed clinician, nervous system healing, clinical psychologist',
     icon: '🌿',
     headline: 'Somatic Therapy Care',
     tagline: 'Autonomic Stabilization & Trauma-Informed Healing',
     content: `
-      <p>Somatic psychotherapy treats mental tension through the body's nervous system. inStill partners with top clinicians to bring evidence-based polyvagal exercises, sensory grounding, and bilateral stimulation into regular clinical practice.</p>
+      <p>Somatic psychotherapy treats mental tension through the body's nervous system. instilll partners with top clinicians to bring evidence-based polyvagal exercises, sensory grounding, and bilateral stimulation into regular clinical practice.</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>Autonomic Re-Patterning</strong>
@@ -233,14 +233,14 @@ const pages = [
   },
   {
     slug: 'companions',
-    title: 'Mew Mew & EMO Interactive Mindful Companions | inStill',
+    title: 'Mew Mew & EMO Interactive Mindful Companions | instilll',
     desc: 'Meet Mew Mew the hoverboard robot companion and EMO the desktop pet, providing playful calming routines, joyful reactions, and mindful pauses.',
     keywords: 'mew mew companion, emo robot pet, mindful companions, sensory pets, interactive wellness companions, digital pet meditation',
     icon: '🤖',
     headline: 'Mindful Wellness Companions',
     tagline: 'Mew Mew Robot & EMO Desktop Pet',
     content: `
-      <p>Play is a primary biological route to nervous system safety. inStill features <strong>Mew Mew</strong> (our state-driven hoverboard robot) and <strong>EMO</strong> (our expressive desktop pet) who react to your touch, device gestures, and breathwork milestones.</p>
+      <p>Play is a primary biological route to nervous system safety. instilll features <strong>Mew Mew</strong> (our state-driven hoverboard robot) and <strong>EMO</strong> (our expressive desktop pet) who react to your touch, device gestures, and breathwork milestones.</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>Mew Mew on Hoverboard</strong>
@@ -261,14 +261,14 @@ const pages = [
   },
   {
     slug: 'games',
-    title: 'Sensory Focus Games: Tile Shift 2048 & Reflex Core | inStill',
+    title: 'Sensory Focus Games: Tile Shift 2048 & Reflex Core | instilll',
     desc: 'Play soothing sensory micro-games: Frosted glass Tile Shift 2048, sub-millisecond Reflex Core Frost, and tactile pop bubble sheets.',
     keywords: 'sensory games, mindful gaming, tile shift 2048, reflex core game, bubble pop sensory, stress relief games, focus micro games',
     icon: '🎮',
     headline: 'Sensory Focus Micro-Games',
     tagline: 'Tactile Play Without Dopamine Depletion',
     content: `
-      <p>Traditional mobile games exploit dopamine loops and flashy ads. inStill games are sensory sandboxes designed to restore presence, test motor acuity, and deliver tactile satisfaction without adrenaline spikes.</p>
+      <p>Traditional mobile games exploit dopamine loops and flashy ads. instilll games are sensory sandboxes designed to restore presence, test motor acuity, and deliver tactile satisfaction without adrenaline spikes.</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>Tile Shift 2048</strong>
@@ -289,7 +289,7 @@ const pages = [
   },
   {
     slug: 'desk-clock',
-    title: 'MagSafe StandBy Landscape Desk Clock | inStill',
+    title: 'MagSafe StandBy Landscape Desk Clock | instilll',
     desc: 'Turn your device into a luxury bedside or desk clock with 152sp fluid pastel numerals, 270-degree battery gauge, charging wattage, thermals, and strict DND.',
     keywords: 'standby desk clock, magsafe landscape clock, bedside clock app, oled nightstand clock, pastel clock typography, battery wattage monitor, strict dnd',
     icon: '⏰',
@@ -317,14 +317,14 @@ const pages = [
   },
   {
     slug: 'standby',
-    title: 'Fullscreen StandBy Mode Clock Simulator | inStill',
+    title: 'Fullscreen StandBy Mode Clock Simulator | instilll',
     desc: 'Interactive OLED desk clock simulation with soft pastel duotone palettes, decimal battery telemetry, and zero-distraction focus.',
     keywords: 'fullscreen clock, standby mode simulator, oled nightstand clock, desk dock clock, aesthetic clock widget, minimal digital clock',
     icon: '🕰️',
     headline: 'Fullscreen StandBy Clock',
     tagline: 'OLED Nightstand & Desk Docking Experience',
     content: `
-      <p>Launch inStill's <strong>Fullscreen StandBy Mode</strong> right in your browser. Whether working at your desk or resting on your nightstand, enjoy full-screen distraction-free time display with custom colorway switches and zero blue-light strain.</p>
+      <p>Launch instilll's <strong>Fullscreen StandBy Mode</strong> right in your browser. Whether working at your desk or resting on your nightstand, enjoy full-screen distraction-free time display with custom colorway switches and zero blue-light strain.</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>True OLED Black Backdrop</strong>
@@ -341,14 +341,14 @@ const pages = [
   },
   {
     slug: 'doombreaker',
-    title: 'Doom-Scroll Breaker: Digital Wellbeing Intervention | inStill',
+    title: 'Doom-Scroll Breaker: Digital Wellbeing Intervention | instilll',
     desc: 'Android Accessibility Service monitor that interrupts chronic social media feeds with full-screen vagal rest cues and gentle Tibetan gongs.',
     keywords: 'doomscroll breaker, screen time intervention, social media limiter, digital wellbeing app, accessibility service rest, eye rest reminder',
     icon: '⚡',
     headline: 'Doom-Scroll Breaker',
     tagline: 'Proactive Digital Wellbeing & Eye Rest',
     content: `
-      <p>Algorithmic feeds are engineered to induce hypnotic scrolling trances. inStill's <strong>Doom-Scroll Breaker</strong> monitors continuous scroll velocity across YouTube, Instagram, X (Twitter), Facebook, and Reddit on-device, softly intervening with a calming full-screen pause when your limit is reached.</p>
+      <p>Algorithmic feeds are engineered to induce hypnotic scrolling trances. instilll's <strong>Doom-Scroll Breaker</strong> monitors continuous scroll velocity across YouTube, Instagram, X (Twitter), Facebook, and Reddit on-device, softly intervening with a calming full-screen pause when your limit is reached.</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>On-Device Accessibility Service</strong>
@@ -369,14 +369,14 @@ const pages = [
   },
   {
     slug: 'soundboard',
-    title: 'Interactive Sensory Soundboard & Acoustics | inStill',
+    title: 'Interactive Sensory Soundboard & Acoustics | instilll',
     desc: 'Synthesized pure acoustic sound generator: 1568 Hz Tibetan Tingsha bells, 174 Hz singing bowls, frequency-modulated rain cascades, and kalimba arpeggios.',
     keywords: 'sensory soundboard, tibetan bells sound, singing bowl frequency, kalimba meditation, water pour audio, web audio synthesizer, relaxation sounds',
     icon: '🔔',
     headline: 'Sensory Acoustics Soundboard',
     tagline: 'Synthesized Resonances via Web Audio API',
     content: `
-      <p>Every sound in inStill is synthesized dynamically or streamed in uncompressed HD. Experience pure acoustic frequencies designed to entrain brainwaves and stimulate the auricular branch of the vagus nerve.</p>
+      <p>Every sound in instilll is synthesized dynamically or streamed in uncompressed HD. Experience pure acoustic frequencies designed to entrain brainwaves and stimulate the auricular branch of the vagus nerve.</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>1568 Hz Tibetan Tingsha Bell</strong>
@@ -401,14 +401,14 @@ const pages = [
   },
   {
     slug: 'safety',
-    title: 'Privacy Vault & 24/7 988 Crisis Lifeline | inStill',
+    title: 'Privacy Vault & 24/7 988 Crisis Lifeline | instilll',
     desc: 'Your sanctuary is protected with zero ad tracking, local device encryption, and one-tap 24/7 access to the free, confidential 988 Suicide & Crisis Lifeline.',
     keywords: '988 lifeline, crisis support, mental health emergency, privacy vault, encrypted health data, zero tracking app, confidential crisis call',
     icon: '🛡️',
     headline: 'Privacy, Identity & 24/7 Lifeline',
     tagline: 'Local-First Encryption & Immediate Crisis Support',
     content: `
-      <p>Your mental health sanctuary must be safe beyond compromise. inStill stores all personal logs exclusively in an on-device encrypted vault, while providing instant, confidential connection to trained emergency care.</p>
+      <p>Your mental health sanctuary must be safe beyond compromise. instilll stores all personal logs exclusively in an on-device encrypted vault, while providing instant, confidential connection to trained emergency care.</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>988 Suicide & Crisis Lifeline</strong>
@@ -429,14 +429,14 @@ const pages = [
   },
   {
     slug: 'themes',
-    title: '11 Living Canvas Ambient Shaders Matrix | inStill',
+    title: '11 Living Canvas Ambient Shaders Matrix | instilll',
     desc: 'Explore 11 dynamic 60 FPS GLSL canvas shaders: Clean White, Ferris Wheel, Midnight Sage, Cosmic Dusk, Oasis Aurora, Twilight Prairie, and more.',
     keywords: 'living canvas themes, glsl shaders wellness, 60fps canvas animation, ferris wheel theme, clean white theme, cosmic dusk theme, generative background',
     icon: '🎨',
     headline: 'Living Canvas Themes Matrix',
     tagline: '11 Dynamic 60 FPS GLSL Visual Ecosystems',
     content: `
-      <p>Colors have an immediate neurochemical effect on arousal and mood. inStill features 11 bespoke GLSL liquid shaders that react to your mouse movement, touch velocity, and time of day.</p>
+      <p>Colors have an immediate neurochemical effect on arousal and mood. instilll features 11 bespoke GLSL liquid shaders that react to your mouse movement, touch velocity, and time of day.</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>Clean White (CW) & Ferris Wheel (FW)</strong>
@@ -457,14 +457,14 @@ const pages = [
   },
   {
     slug: 'science',
-    title: 'The Neuroscience of Presence & Vagal Biofeedback | inStill',
-    desc: 'The clinical and mathematical foundation of inStill: Polyvagal autonomic stabilization, respiratory sinus arrhythmia (RSA), and 60 FPS visual entrainment.',
+    title: 'The Neuroscience of Presence & Vagal Biofeedback | instilll',
+    desc: 'The clinical and mathematical foundation of instilll: Polyvagal autonomic stabilization, respiratory sinus arrhythmia (RSA), and 60 FPS visual entrainment.',
     keywords: 'neuroscience of presence, polyvagal theory, vagus nerve stimulation, respiratory sinus arrhythmia, rsa biofeedback, mental wellness science',
     icon: '🔬',
     headline: 'The Science of Presence',
     tagline: 'Neurobiology, Vagal Tone & Generative Mathematics',
     content: `
-      <p>Digital wellness should not be vague mysticism. inStill is built on peer-reviewed principles of <strong>Stephen Porges' Polyvagal Theory</strong>, Respiratory Sinus Arrhythmia (RSA), and neuro-aesthetic visual entrainment.</p>
+      <p>Digital wellness should not be vague mysticism. instilll is built on peer-reviewed principles of <strong>Stephen Porges' Polyvagal Theory</strong>, Respiratory Sinus Arrhythmia (RSA), and neuro-aesthetic visual entrainment.</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>Vagal Brake Activation</strong>
@@ -485,25 +485,25 @@ const pages = [
   },
   {
     slug: 'faq',
-    title: 'Frequently Asked Questions — inStill',
-    desc: 'Common questions about inStill\'s zero-cloud privacy architecture, offline support, MagSafe desk clock, and clinical telehealth integrations.',
-    keywords: 'inStill faq, mental health app questions, offline meditation, privacy first wellness app, desk clock magsafe compatibility',
+    title: 'Frequently Asked Questions — instilll',
+    desc: 'Common questions about instilll\'s zero-cloud privacy architecture, offline support, MagSafe desk clock, and clinical telehealth integrations.',
+    keywords: 'instilll faq, mental health app questions, offline meditation, privacy first wellness app, desk clock magsafe compatibility',
     icon: '❓',
     headline: 'Frequently Asked Questions',
-    tagline: 'Everything You Need to Know About inStill',
+    tagline: 'Everything You Need to Know About instilll',
     content: `
       <div class="faq-list">
         <div class="faq-item">
           <h3>Is my journaling or step data ever sent to cloud servers?</h3>
-          <p>No. inStill adheres to a strict local-first architecture. All journaling entries, mood records, step counters, and hydration logs are stored in your device's encrypted storage vault.</p>
+          <p>No. instilll adheres to a strict local-first architecture. All journaling entries, mood records, step counters, and hydration logs are stored in your device's encrypted storage vault.</p>
         </div>
         <div class="faq-item">
-          <h3>Does inStill require an internet connection?</h3>
+          <h3>Does instilll require an internet connection?</h3>
           <p>The core suite—Breathe orb, MagSafe StandBy clock, Journal, offline soundboard, and DoomScroll Breaker—functions 100% offline. An internet connection is only needed for live Agora RTC telehealth video sessions.</p>
         </div>
         <div class="faq-item">
           <h3>How does the MagSafe StandBy Desk Clock activate?</h3>
-          <p>Rotate your phone into landscape while connected to a wireless MagSafe charger or bedside dock. inStill automatically engages StandBy mode, displaying our 152sp pastel numerals and strict DND.</p>
+          <p>Rotate your phone into landscape while connected to a wireless MagSafe charger or bedside dock. instilll automatically engages StandBy mode, displaying our 152sp pastel numerals and strict DND.</p>
         </div>
         <div class="faq-item">
           <h3>How is Doom-Scroll Breaker configured?</h3>
@@ -512,18 +512,18 @@ const pages = [
       </div>
     `,
     ctaHref: '/#today',
-    ctaText: 'Explore inStill Experience'
+    ctaText: 'Explore instilll Experience'
   },
   {
     slug: 'about',
-    title: 'About inStill — Mindful Engineering & Human Sanctuary',
-    desc: 'Learn about the vision behind inStill: Designing digital products that soothe rather than addict, restoring autonomic nervous system serenity.',
-    keywords: 'about inStill, mindful technology, digital sanctuary, humane design, calm technology, non addictive apps, mental health founders',
+    title: 'About instilll — Mindful Engineering & Human Sanctuary',
+    desc: 'Learn about the vision behind instilll: Designing digital products that soothe rather than addict, restoring autonomic nervous system serenity.',
+    keywords: 'about instilll, mindful technology, digital sanctuary, humane design, calm technology, non addictive apps, mental health founders',
     icon: '✨',
-    headline: 'About inStill',
+    headline: 'About instilll',
     tagline: 'Mindful Engineering for Human Nervous Systems',
     content: `
-      <p>Modern consumer technology was largely designed to colonize human attention through infinite feeds, red notification badges, and cortisol-inducing alerts. <strong>inStill</strong> was founded on the opposite premise: what if software was engineered specifically to return you to yourself?</p>
+      <p>Modern consumer technology was largely designed to colonize human attention through infinite feeds, red notification badges, and cortisol-inducing alerts. <strong>instilll</strong> was founded on the opposite premise: what if software was engineered specifically to return you to yourself?</p>
       <p>We blend luxury aesthetics, mathematical physics shaders, and trauma-informed clinical psychology into an unhurried digital sanctuary.</p>
       <div class="features-grid">
         <div class="feature-item">
@@ -537,13 +537,13 @@ const pages = [
       </div>
     `,
     ctaHref: '/#today',
-    ctaText: 'Join the inStill Movement'
+    ctaText: 'Join the instilll Movement'
   },
   {
     slug: 'contact',
-    title: 'Contact & Clinical Inquiries — inStill',
-    desc: 'Get in touch with the inStill team for clinician directory onboarding, enterprise wellness partnerships, press inquiries, or support.',
-    keywords: 'contact inStill, clinician onboarding, mental health partnerships, press inquiries, wellness app support, instilll.com contact',
+    title: 'Contact & Clinical Inquiries — instilll',
+    desc: 'Get in touch with the instilll team for clinician directory onboarding, enterprise wellness partnerships, press inquiries, or support.',
+    keywords: 'contact instilll, clinician onboarding, mental health partnerships, press inquiries, wellness app support, instilll.com contact',
     icon: '📬',
     headline: 'Contact & Partnerships',
     tagline: 'Clinicians, Collaborators & Inquiries',
@@ -569,14 +569,14 @@ const pages = [
   },
   {
     slug: 'downloads',
-    title: 'Downloads & App Installation — inStill',
-    desc: 'Install inStill as an Android application, iOS Progressive Web App (PWA), or run directly in any modern desktop or mobile browser.',
-    keywords: 'download inStill, inStill app download, install pwa, android apk mental health, offline mindfulness app install',
+    title: 'Downloads & App Installation — instilll',
+    desc: 'Install instilll as an Android application, iOS Progressive Web App (PWA), or run directly in any modern desktop or mobile browser.',
+    keywords: 'download instilll, instilll app download, install pwa, android apk mental health, offline mindfulness app install',
     icon: '📲',
     headline: 'Downloads & Installation',
     tagline: 'Cross-Platform Mindful Presence',
     content: `
-      <p>Enjoy inStill on every screen. Install our Progressive Web App (PWA) with full offline support, or dock on your desk with native landscape StandBy support.</p>
+      <p>Enjoy instilll on every screen. Install our Progressive Web App (PWA) with full offline support, or dock on your desk with native landscape StandBy support.</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>Web App (Browser PWA)</strong>
@@ -597,14 +597,14 @@ const pages = [
   },
   {
     slug: 'lab',
-    title: 'inStill Research Lab — Sensory Telemetry & Neural Shaders | inStill',
+    title: 'instilll Research Lab — Sensory Telemetry & Neural Shaders | instilll',
     desc: 'Exploring 60 FPS liquid canvas shaders, polyvagal nerve stabilization, and clinical telehealth algorithms for digital wellness.',
-    keywords: 'inStill research lab, sensory telemetry, glsl shaders research, polyvagal nerve experiments, digital wellness lab',
+    keywords: 'instilll research lab, sensory telemetry, glsl shaders research, polyvagal nerve experiments, digital wellness lab',
     icon: '🔬',
-    headline: 'inStill Research Lab',
+    headline: 'instilll Research Lab',
     tagline: 'Sensory Shaders & Polyvagal Telemetry Innovations',
     content: `
-      <p>The <strong>inStill Research Lab</strong> prototypes next-generation sensory computing interfaces. We investigate how real-time generative computer graphics, bio-acoustic synthesis, and on-device machine learning can promote deep autonomic relaxation.</p>
+      <p>The <strong>instilll Research Lab</strong> prototypes next-generation sensory computing interfaces. We investigate how real-time generative computer graphics, bio-acoustic synthesis, and on-device machine learning can promote deep autonomic relaxation.</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>WebGL Liquid Simulators</strong>
@@ -621,18 +621,18 @@ const pages = [
       </div>
     `,
     ctaHref: '/#today',
-    ctaText: 'Return to inStill Home'
+    ctaText: 'Return to instilll Home'
   },
   {
     slug: 'privacy',
-    title: 'Privacy Policy — inStill | Zero Tracking & Local Encryption',
-    desc: 'inStill is engineered with zero invasive tracking, local-first biometric storage, and strict HIPAA compliance for clinical consultations.',
-    keywords: 'inStill privacy policy, zero tracking, local encrypted vault, hipaa compliance, private mental health app, no cloud storage',
+    title: 'Privacy Policy — instilll | Zero Tracking & Local Encryption',
+    desc: 'instilll is engineered with zero invasive tracking, local-first biometric storage, and strict HIPAA compliance for clinical consultations.',
+    keywords: 'instilll privacy policy, zero tracking, local encrypted vault, hipaa compliance, private mental health app, no cloud storage',
     icon: '🛡️',
     headline: 'Privacy Policy',
     tagline: 'Your Mindful Sanctuary Belongs Exclusively to You',
     content: `
-      <p>At inStill, privacy is not a compliance checkbox—it is the foundational architecture of psychological safety. We believe that your intimate reflections, emotional states, and physiological telemetry must never be commercialized, profiled, or sold.</p>
+      <p>At instilll, privacy is not a compliance checkbox—it is the foundational architecture of psychological safety. We believe that your intimate reflections, emotional states, and physiological telemetry must never be commercialized, profiled, or sold.</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>Zero Ad Networks or Trackers</strong>
@@ -657,14 +657,14 @@ const pages = [
   },
   {
     slug: 'privacy-policy',
-    title: 'Full Privacy Policy — inStill Systems Inc.',
+    title: 'Full Privacy Policy — instilll Systems Inc.',
     desc: 'Comprehensive data privacy disclosures, local encryption standards, Agora RTC telehealth safeguards, and user rights under GDPR and CCPA.',
-    keywords: 'privacy policy, data protection, gdpr compliance, ccpa rights, hipaa telehealth, local first encryption, inStill legal',
+    keywords: 'privacy policy, data protection, gdpr compliance, ccpa rights, hipaa telehealth, local first encryption, instilll legal',
     icon: '📜',
     headline: 'Data Privacy & Protection Policy',
     tagline: 'Comprehensive Disclosures & Ethical Data Safeguards',
     content: `
-      <p>This privacy policy outlines how inStill Systems protects your personal autonomy. We strictly minimize data collection to what is technically necessary to operate on-device features.</p>
+      <p>This privacy policy outlines how instilll Systems protects your personal autonomy. We strictly minimize data collection to what is technically necessary to operate on-device features.</p>
       <div class="faq-list">
         <div class="faq-item">
           <h3>1. Data We Do NOT Collect</h3>
@@ -681,18 +681,18 @@ const pages = [
       </div>
     `,
     ctaHref: '/#safety',
-    ctaText: 'Return to inStill App'
+    ctaText: 'Return to instilll App'
   },
   {
     slug: 'privacy-policy/spycam-pro',
-    title: 'Spycam Pro Privacy Policy — inStill Sensor Safety',
+    title: 'Spycam Pro Privacy Policy — instilll Sensor Safety',
     desc: 'Privacy disclosures for camera telemetry safety, optical sensor permissions, and local video feed isolation.',
-    keywords: 'spycam pro privacy policy, camera permissions, optical sensor safety, local video isolation, inStill sensor privacy',
+    keywords: 'spycam pro privacy policy, camera permissions, optical sensor safety, local video isolation, instilll sensor privacy',
     icon: '🔒',
     headline: 'Spycam Pro Privacy Policy',
     tagline: 'Optical Sensor Isolation & Camera Telemetry Safety',
     content: `
-      <p>This policy details the strict operational limitations placed on optical camera sensors utilized within inStill diagnostic utilities (including historical Spycam Pro tools).</p>
+      <p>This policy details the strict operational limitations placed on optical camera sensors utilized within instilll diagnostic utilities (including historical Spycam Pro tools).</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>Zero Remote Streaming</strong>
@@ -709,18 +709,18 @@ const pages = [
   },
   {
     slug: 'terms',
-    title: 'Terms of Service — inStill Systems Inc.',
-    desc: 'Terms of service, medical disclaimer, telehealth consultation agreements, and intellectual property terms for inStill.',
-    keywords: 'terms of service, inStill terms, medical disclaimer, telehealth terms, user agreement, software terms',
+    title: 'Terms of Service — instilll Systems Inc.',
+    desc: 'Terms of service, medical disclaimer, telehealth consultation agreements, and intellectual property terms for instilll.',
+    keywords: 'terms of service, instilll terms, medical disclaimer, telehealth terms, user agreement, software terms',
     icon: '⚖️',
     headline: 'Terms of Service',
     tagline: 'Mutual Agreements, Medical Disclaimers & Usage Rights',
     content: `
-      <p>Welcome to inStill. By accessing our web application, mobile applications, or telehealth portals, you agree to these transparent terms.</p>
+      <p>Welcome to instilll. By accessing our web application, mobile applications, or telehealth portals, you agree to these transparent terms.</p>
       <div class="features-grid">
         <div class="feature-item">
           <strong>Wellness, Not Medical Advice</strong>
-          <span>inStill breathwork, soundscapes, and games are digital wellness tools intended to promote relaxation, not diagnostic medical treatments.</span>
+          <span>instilll breathwork, soundscapes, and games are digital wellness tools intended to promote relaxation, not diagnostic medical treatments.</span>
         </div>
         <div class="feature-item">
           <strong>Emergency Care Protocol</strong>
@@ -728,12 +728,12 @@ const pages = [
         </div>
         <div class="feature-item">
           <strong>Intellectual Property</strong>
-          <span>All 60 FPS shaders, original acoustic compositions, mascot illustrations, and software architectures are copyrighted property of inStill Systems.</span>
+          <span>All 60 FPS shaders, original acoustic compositions, mascot illustrations, and software architectures are copyrighted property of instilll Systems.</span>
         </div>
       </div>
     `,
     ctaHref: '/#today',
-    ctaText: 'Accept & Launch inStill'
+    ctaText: 'Accept & Launch instilll'
   }
 ];
 
@@ -751,8 +751,8 @@ function generateHtml(page) {
     <meta name="title" content="${page.title}" />
     <meta name="description" content="${page.desc}" />
     <meta name="keywords" content="${page.keywords}" />
-    <meta name="author" content="inStill Systems" />
-    <meta name="publisher" content="inStill" />
+    <meta name="author" content="instilll Systems" />
+    <meta name="publisher" content="instilll" />
     <meta name="category" content="Health &amp; Fitness, Mental Wellness" />
 
     <!-- Crawlers & Indexing -->
@@ -763,7 +763,7 @@ function generateHtml(page) {
     <link rel="alternate" hreflang="en" href="${canonicalUrl}" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:site_name" content="inStill" />
+    <meta property="og:site_name" content="instilll" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="${canonicalUrl}" />
     <meta property="og:title" content="${page.title}" />
@@ -771,7 +771,7 @@ function generateHtml(page) {
     <meta property="og:image" content="https://instilll.com/assets/logo.png" />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="1024" />
-    <meta property="og:image:alt" content="inStill Mindfulness Feline Mascot" />
+    <meta property="og:image:alt" content="instilll Mindfulness Feline Mascot" />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
@@ -804,7 +804,7 @@ function generateHtml(page) {
         "@type": "WebSite",
         "@id": "https://instilll.com/#website",
         "url": "https://instilll.com/",
-        "name": "inStill"
+        "name": "instilll"
       },
       "breadcrumb": {
         "@type": "BreadcrumbList",
@@ -874,8 +874,11 @@ function generateHtml(page) {
         overflow: hidden;
       }
       .brand-logo img { width: 100%; height: 100%; object-fit: cover; }
-      .brand-name { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
-      .brand-name span { color: var(--pop-forest); }
+      /* Distinct 3-L wordmark typography */
+      .brand-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 900; letter-spacing: -0.5px; display: inline-flex; align-items: baseline; color: var(--text-slate); }
+      .brand-name .l1 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900; color: var(--text-slate); }
+      .brand-name .l2 { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; color: var(--pop-forest); padding: 0 1px; transform: skewX(-6deg); display: inline-block; }
+      .brand-name .l3 { font-family: 'JetBrains Mono', monospace; font-weight: 900; color: #f59e0b; padding-left: 1px; display: inline-block; }
       .badge {
         display: inline-flex;
         align-items: center;
@@ -971,9 +974,9 @@ function generateHtml(page) {
     <div class="page-card">
       <a href="../" class="brand-header">
         <div class="brand-logo">
-          <img src="../assets/logo.png" alt="inStill Logo" />
+          <img src="../assets/logo.png" alt="instilll Logo" />
         </div>
-        <div class="brand-name">in<span>STILL</span></div>
+        <div class="brand-name">inSTIL<span class="l1">L</span><span class="l2">L</span><span class="l3">L</span></div>
       </a>
 
       <div class="badge">${page.icon} ${page.slug}</div>
@@ -994,7 +997,7 @@ function generateHtml(page) {
     </div>
 
     <footer class="card-footer">
-      &copy; 2026 inStill. Mindful Presence &amp; Daily Balance. Zero Cloud Telemetry.
+      &copy; 2026 instilll. Mindful Presence &amp; Daily Balance. Zero Cloud Telemetry.
     </footer>
   </body>
 </html>`;

@@ -431,7 +431,7 @@ export const TodayDashboardSection: React.FC = () => {
                   ? './assets/screenshots/dashboard-light.jpeg'
                   : './assets/screenshots/dashboard-dark.jpeg'
               }
-              alt={`inStill Dashboard ${dashboardTheme === 'light' ? 'Clean White' : 'Ferris Wheel Dark'}`}
+              alt={`instilll Dashboard ${dashboardTheme === 'light' ? 'Clean White' : 'Ferris Wheel Dark'}`}
               orientation="vertical"
               tiltDirection="right"
               glowColor={dashboardTheme === 'light' ? 'rgba(210, 245, 108, 0.45)' : 'rgba(203, 180, 245, 0.45)'}

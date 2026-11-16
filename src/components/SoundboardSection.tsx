@@ -123,7 +123,7 @@ export const SoundboardSection: React.FC = () => {
             Acoustic Engineering Soundboard
           </h2>
           <p className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed">
-            Every audio cue in inStill is synthesized dynamically via hardware oscillators,
+            Every audio cue in instilll is synthesized dynamically via hardware oscillators,
             ensuring zero bandwidth lag, clean transients, and soothing therapeutic frequencies.
           </p>
         </motion.div>
