@@ -9,7 +9,7 @@ const publicDir = path.resolve(__dirname, '../public');
 const pages = [
   {
     slug: 'today',
-    title: 'Today Dashboard — Mindful Presence & Daily Balance | instilll',
+    title: 'Today Dashboard — Mindful Presence & Daily Balance | instilll (inStill)',
     desc: 'Explore the instilll Today Dashboard with daily reflection quotes, 5-state bio-expressive mood picker, guided breathwork, and hydration telemetry.',
     keywords: 'instilll today dashboard, mindful presence, daily reflection, mood tracker, hydration counter, breathwork launcher, mental wellbeing',
     icon: '🌸',
@@ -41,7 +41,7 @@ const pages = [
   },
   {
     slug: 'practice',
-    title: 'Mindful Practice Suite: Breathe, Heal & Sleep | instilll',
+    title: 'Mindful Practice Suite: Breathe, Heal & Sleep | instilll (inStill)',
     desc: 'Evidence-based mental wellness routines: Guided Box Breathing, acoustic bilateral sound therapy, and restorative sleep scenes.',
     keywords: 'mindful practice, mental wellness routines, breathe heal sleep, vagus nerve stimulation, sleep ambient scenes, relaxation routines',
     icon: '🧘',
@@ -69,7 +69,7 @@ const pages = [
   },
   {
     slug: 'breathe',
-    title: 'Bio-Responsive Breathwork & Box Breathing | instilll',
+    title: 'Bio-Responsive Breathwork & Box Breathing | instilll (inStill)',
     desc: 'Practice Box Breathing (4-4-4), 4-7-8 deep sleep routines, and resonant coherence with instilll\'s 60 FPS harmonic liquid bubble orb.',
     keywords: 'box breathing, 4-7-8 breathing, resonant breathing, vagus nerve exercises, liquid bubble orb, hrv biofeedback, breathwork app',
     icon: '🫧',
@@ -97,7 +97,7 @@ const pages = [
   },
   {
     slug: 'heal',
-    title: 'Bilateral EMDR Acoustic Sound Therapy | instilll',
+    title: 'Bilateral EMDR Acoustic Sound Therapy | instilll (inStill)',
     desc: 'Alternating bilateral acoustic stimulation and somatic soundscapes engineered to soothe acute anxiety, balance brainwaves, and calm the autonomic nervous system.',
     keywords: 'bilateral audio, emdr sound therapy, acoustic stimulation, somatic healing, anxiety relief, binaural beats, brainwave entrainment',
     icon: '🎧',
@@ -125,7 +125,7 @@ const pages = [
   },
   {
     slug: 'sleep',
-    title: 'Restorative Sleep Art & Ambient Soundscapes | instilll',
+    title: 'Restorative Sleep Art & Ambient Soundscapes | instilll (inStill)',
     desc: 'Immerse in moonlit rain on glass, lotus pond waters, and summer hillside breezes with gentle Tibetan wind-down chimes.',
     keywords: 'sleep soundscapes, moonlit rain, ambient sleep art, sleep meditation, deep rest, insomnia relief, evening wind down',
     icon: '🌙',
@@ -153,7 +153,7 @@ const pages = [
   },
   {
     slug: 'journal',
-    title: 'Mindful Journal & Biometric Telemetry | instilll',
+    title: 'Mindful Journal & Biometric Telemetry | instilll (inStill)',
     desc: 'Reflective journaling paired with direct hardware pedometer telemetry, hydration tracking, and 3D page-curling flip book diary.',
     keywords: 'mindful journal, biometric telemetry, pedometer tracking, hydration log, 3D flip book diary, private diary, encrypted journal',
     icon: '📖',
@@ -181,7 +181,7 @@ const pages = [
   },
   {
     slug: 'telehealth',
-    title: 'Clinical Somatic Telehealth & Agora RTC Video | instilll',
+    title: 'Clinical Somatic Telehealth & Agora RTC Video | instilll (inStill)',
     desc: 'Encrypted HD video consultations with certified neuro-psychologists and somatic therapists, synchronized with real-time breathing telemetry.',
     keywords: 'telehealth therapy, agora rtc video, somatic therapy, licensed psychologist, online therapy, emdr telehealth, secure clinical video',
     icon: '🩺',
@@ -209,7 +209,7 @@ const pages = [
   },
   {
     slug: 'therapy',
-    title: 'Licensed Somatic Therapy & Vagal Regulation | instilll',
+    title: 'Licensed Somatic Therapy & Vagal Regulation | instilll (inStill)',
     desc: 'Connect with certified somatic clinicians specializing in trauma healing, autonomic nervous system stabilization, and burnout recovery.',
     keywords: 'somatic therapy, vagal regulation, polyvagal therapy, trauma informed clinician, nervous system healing, clinical psychologist',
     icon: '🌿',
@@ -233,7 +233,7 @@ const pages = [
   },
   {
     slug: 'companions',
-    title: 'Mew Mew & EMO Interactive Mindful Companions | instilll',
+    title: 'Mew Mew & EMO Interactive Mindful Companions | instilll (inStill)',
     desc: 'Meet Mew Mew the hoverboard robot companion and EMO the desktop pet, providing playful calming routines, joyful reactions, and mindful pauses.',
     keywords: 'mew mew companion, emo robot pet, mindful companions, sensory pets, interactive wellness companions, digital pet meditation',
     icon: '🤖',
@@ -261,7 +261,7 @@ const pages = [
   },
   {
     slug: 'games',
-    title: 'Sensory Focus Games: Tile Shift 2048 & Reflex Core | instilll',
+    title: 'Sensory Focus Games: Tile Shift 2048 & Reflex Core | instilll (inStill)',
     desc: 'Play soothing sensory micro-games: Frosted glass Tile Shift 2048, sub-millisecond Reflex Core Frost, and tactile pop bubble sheets.',
     keywords: 'sensory games, mindful gaming, tile shift 2048, reflex core game, bubble pop sensory, stress relief games, focus micro games',
     icon: '🎮',
@@ -289,7 +289,7 @@ const pages = [
   },
   {
     slug: 'desk-clock',
-    title: 'MagSafe StandBy Landscape Desk Clock | instilll',
+    title: 'MagSafe StandBy Landscape Desk Clock | instilll (inStill)',
     desc: 'Turn your device into a luxury bedside or desk clock with 152sp fluid pastel numerals, 270-degree battery gauge, charging wattage, thermals, and strict DND.',
     keywords: 'standby desk clock, magsafe landscape clock, bedside clock app, oled nightstand clock, pastel clock typography, battery wattage monitor, strict dnd',
     icon: '⏰',
@@ -317,7 +317,7 @@ const pages = [
   },
   {
     slug: 'standby',
-    title: 'Fullscreen StandBy Mode Clock Simulator | instilll',
+    title: 'Fullscreen StandBy Mode Clock Simulator | instilll (inStill)',
     desc: 'Interactive OLED desk clock simulation with soft pastel duotone palettes, decimal battery telemetry, and zero-distraction focus.',
     keywords: 'fullscreen clock, standby mode simulator, oled nightstand clock, desk dock clock, aesthetic clock widget, minimal digital clock',
     icon: '🕰️',
@@ -341,7 +341,7 @@ const pages = [
   },
   {
     slug: 'doombreaker',
-    title: 'Doom-Scroll Breaker: Digital Wellbeing Intervention | instilll',
+    title: 'Doom-Scroll Breaker: Digital Wellbeing Intervention | instilll (inStill)',
     desc: 'Android Accessibility Service monitor that interrupts chronic social media feeds with full-screen vagal rest cues and gentle Tibetan gongs.',
     keywords: 'doomscroll breaker, screen time intervention, social media limiter, digital wellbeing app, accessibility service rest, eye rest reminder',
     icon: '⚡',
@@ -369,7 +369,7 @@ const pages = [
   },
   {
     slug: 'soundboard',
-    title: 'Interactive Sensory Soundboard & Acoustics | instilll',
+    title: 'Interactive Sensory Soundboard & Acoustics | instilll (inStill)',
     desc: 'Synthesized pure acoustic sound generator: 1568 Hz Tibetan Tingsha bells, 174 Hz singing bowls, frequency-modulated rain cascades, and kalimba arpeggios.',
     keywords: 'sensory soundboard, tibetan bells sound, singing bowl frequency, kalimba meditation, water pour audio, web audio synthesizer, relaxation sounds',
     icon: '🔔',
@@ -401,7 +401,7 @@ const pages = [
   },
   {
     slug: 'safety',
-    title: 'Privacy Vault & 24/7 988 Crisis Lifeline | instilll',
+    title: 'Privacy Vault & 24/7 988 Crisis Lifeline | instilll (inStill)',
     desc: 'Your sanctuary is protected with zero ad tracking, local device encryption, and one-tap 24/7 access to the free, confidential 988 Suicide & Crisis Lifeline.',
     keywords: '988 lifeline, crisis support, mental health emergency, privacy vault, encrypted health data, zero tracking app, confidential crisis call',
     icon: '🛡️',
@@ -429,7 +429,7 @@ const pages = [
   },
   {
     slug: 'themes',
-    title: '11 Living Canvas Ambient Shaders Matrix | instilll',
+    title: '11 Living Canvas Ambient Shaders Matrix | instilll (inStill)',
     desc: 'Explore 11 dynamic 60 FPS GLSL canvas shaders: Clean White, Ferris Wheel, Midnight Sage, Cosmic Dusk, Oasis Aurora, Twilight Prairie, and more.',
     keywords: 'living canvas themes, glsl shaders wellness, 60fps canvas animation, ferris wheel theme, clean white theme, cosmic dusk theme, generative background',
     icon: '🎨',
@@ -457,7 +457,7 @@ const pages = [
   },
   {
     slug: 'science',
-    title: 'The Neuroscience of Presence & Vagal Biofeedback | instilll',
+    title: 'The Neuroscience of Presence & Vagal Biofeedback | instilll (inStill)',
     desc: 'The clinical and mathematical foundation of instilll: Polyvagal autonomic stabilization, respiratory sinus arrhythmia (RSA), and 60 FPS visual entrainment.',
     keywords: 'neuroscience of presence, polyvagal theory, vagus nerve stimulation, respiratory sinus arrhythmia, rsa biofeedback, mental wellness science',
     icon: '🔬',
@@ -485,7 +485,7 @@ const pages = [
   },
   {
     slug: 'faq',
-    title: 'Frequently Asked Questions — instilll',
+    title: 'Frequently Asked Questions — instilll (inStill)',
     desc: 'Common questions about instilll\'s zero-cloud privacy architecture, offline support, MagSafe desk clock, and clinical telehealth integrations.',
     keywords: 'instilll faq, mental health app questions, offline meditation, privacy first wellness app, desk clock magsafe compatibility',
     icon: '❓',
@@ -516,7 +516,7 @@ const pages = [
   },
   {
     slug: 'about',
-    title: 'About instilll — Mindful Engineering & Human Sanctuary',
+    title: 'About instilll — Mindful Engineering & Human Sanctuary | instilll (inStill)',
     desc: 'Learn about the vision behind instilll: Designing digital products that soothe rather than addict, restoring autonomic nervous system serenity.',
     keywords: 'about instilll, mindful technology, digital sanctuary, humane design, calm technology, non addictive apps, mental health founders',
     icon: '✨',
@@ -541,7 +541,7 @@ const pages = [
   },
   {
     slug: 'contact',
-    title: 'Contact & Clinical Inquiries — instilll',
+    title: 'Contact & Clinical Inquiries — instilll (inStill)',
     desc: 'Get in touch with the instilll team for clinician directory onboarding, enterprise wellness partnerships, press inquiries, or support.',
     keywords: 'contact instilll, clinician onboarding, mental health partnerships, press inquiries, wellness app support, instilll.com contact',
     icon: '📬',
@@ -569,7 +569,7 @@ const pages = [
   },
   {
     slug: 'downloads',
-    title: 'Downloads & App Installation — instilll',
+    title: 'Downloads & App Installation — instilll (inStill)',
     desc: 'Install instilll as an Android application, iOS Progressive Web App (PWA), or run directly in any modern desktop or mobile browser.',
     keywords: 'download instilll, instilll app download, install pwa, android apk mental health, offline mindfulness app install',
     icon: '📲',
@@ -597,7 +597,7 @@ const pages = [
   },
   {
     slug: 'lab',
-    title: 'instilll Research Lab — Sensory Telemetry & Neural Shaders | instilll',
+    title: 'instilll Research Lab — Sensory Telemetry & Neural Shaders | instilll (inStill)',
     desc: 'Exploring 60 FPS liquid canvas shaders, polyvagal nerve stabilization, and clinical telehealth algorithms for digital wellness.',
     keywords: 'instilll research lab, sensory telemetry, glsl shaders research, polyvagal nerve experiments, digital wellness lab',
     icon: '🔬',
@@ -625,7 +625,7 @@ const pages = [
   },
   {
     slug: 'privacy',
-    title: 'Privacy Policy — instilll | Zero Tracking & Local Encryption',
+    title: 'Privacy Policy — instilll (inStill) | Zero Tracking & Local Encryption',
     desc: 'instilll is engineered with zero invasive tracking, local-first biometric storage, and strict HIPAA compliance for clinical consultations.',
     keywords: 'instilll privacy policy, zero tracking, local encrypted vault, hipaa compliance, private mental health app, no cloud storage',
     icon: '🛡️',
@@ -657,7 +657,7 @@ const pages = [
   },
   {
     slug: 'privacy-policy',
-    title: 'Full Privacy Policy — instilll Systems Inc.',
+    title: 'Full Privacy Policy — instilll Systems Inc. | instilll (inStill)',
     desc: 'Comprehensive data privacy disclosures, local encryption standards, Agora RTC telehealth safeguards, and user rights under GDPR and CCPA.',
     keywords: 'privacy policy, data protection, gdpr compliance, ccpa rights, hipaa telehealth, local first encryption, instilll legal',
     icon: '📜',
@@ -685,7 +685,7 @@ const pages = [
   },
   {
     slug: 'privacy-policy/spycam-pro',
-    title: 'Spycam Pro Privacy Policy — instilll Sensor Safety',
+    title: 'Spycam Pro Privacy Policy — instilll (inStill) Sensor Safety',
     desc: 'Privacy disclosures for camera telemetry safety, optical sensor permissions, and local video feed isolation.',
     keywords: 'spycam pro privacy policy, camera permissions, optical sensor safety, local video isolation, instilll sensor privacy',
     icon: '🔒',
@@ -709,7 +709,7 @@ const pages = [
   },
   {
     slug: 'terms',
-    title: 'Terms of Service — instilll Systems Inc.',
+    title: 'Terms of Service — instilll Systems Inc. | instilll (inStill)',
     desc: 'Terms of service, medical disclaimer, telehealth consultation agreements, and intellectual property terms for instilll.',
     keywords: 'terms of service, instilll terms, medical disclaimer, telehealth terms, user agreement, software terms',
     icon: '⚖️',
@@ -739,6 +739,8 @@ const pages = [
 
 function generateHtml(page) {
   const canonicalUrl = `https://instilll.com/${page.slug}`;
+  const brandKeywords = "instilll, inStill, inSTILLL, instill, inSTILL, inStilll, instilll.com, instill.com, instill app, instilll app, inStill app, inStill wellness, instill wellness, instilll wellness, mindful presence, daily balance, mental wellness, mental wellbeing, digital wellbeing, digital wellness, emotional wellness, somatic relaxation, nervous system regulation, autonomic nervous system, vagus nerve stimulation, polyvagal theory, stress relief, anxiety relief, box breathing, 4-7-8 breathing, bilateral sound therapy, emdr acoustic stimulation, binaural beats, restorative sleep, sleep soundscapes, sensory grounding, doom scroll breaker, screen time balance, local first privacy, zero cloud storage";
+  const allKeywords = `${page.keywords}, ${brandKeywords}`;
   return `<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
@@ -750,10 +752,15 @@ function generateHtml(page) {
     <title>${page.title}</title>
     <meta name="title" content="${page.title}" />
     <meta name="description" content="${page.desc}" />
-    <meta name="keywords" content="${page.keywords}" />
+    <meta name="keywords" content="${allKeywords}" />
+    <meta name="news_keywords" content="${allKeywords}" />
     <meta name="author" content="instilll Systems" />
-    <meta name="publisher" content="instilll" />
-    <meta name="category" content="Health &amp; Fitness, Mental Wellness" />
+    <meta name="publisher" content="instilll (inStill)" />
+    <meta name="category" content="Health &amp; Fitness, Mental Wellness, Digital Wellbeing" />
+    <meta name="subject" content="${page.headline} — instilll (inStill) Mindful Presence &amp; Daily Balance" />
+    <meta name="topic" content="Mental Wellness, Digital Wellbeing, Somatic Care, Mindfulness, ${page.headline}" />
+    <meta name="abstract" content="${page.desc}" />
+    <meta name="summary" content="${page.desc}" />
 
     <!-- Crawlers & Indexing -->
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -763,7 +770,7 @@ function generateHtml(page) {
     <link rel="alternate" hreflang="en" href="${canonicalUrl}" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:site_name" content="instilll" />
+    <meta property="og:site_name" content="instilll (inStill)" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="${canonicalUrl}" />
     <meta property="og:title" content="${page.title}" />
@@ -771,7 +778,7 @@ function generateHtml(page) {
     <meta property="og:image" content="https://instilll.com/assets/logo.png" />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="1024" />
-    <meta property="og:image:alt" content="instilll Mindfulness Feline Mascot" />
+    <meta property="og:image:alt" content="instilll (inStill) Mindfulness Feline Mascot" />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
@@ -804,8 +811,22 @@ function generateHtml(page) {
         "@type": "WebSite",
         "@id": "https://instilll.com/#website",
         "url": "https://instilll.com/",
-        "name": "instilll"
+        "name": "instilll",
+        "alternateName": [
+          "inStill",
+          "instill",
+          "inSTILLL",
+          "instilll",
+          "inSTILL",
+          "inStilll",
+          "inStill Wellness",
+          "instilll app",
+          "instill app",
+          "inStill.com",
+          "instilll.com"
+        ]
       },
+      "keywords": "${allKeywords}",
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
