@@ -46,6 +46,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { name: 'Breathe', href: '/breathe', id: 'practice' },
     { name: 'Journal', href: '/journal', id: 'journal' },
     { name: 'Telehealth', href: '/telehealth', id: 'telehealth' },
+    { name: 'Guides', href: '/learn', id: 'wellness-library' },
     { name: 'Companions', href: '/companions', id: 'companions' },
     { name: 'Desk Clock', href: '/desk-clock', id: 'desk-clock' },
     { name: 'Soundboard', href: '/soundboard', id: 'soundboard' },

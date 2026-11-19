@@ -18,6 +18,10 @@ import { StandByClockModal } from './components/StandByClockModal';
 import { SoundscapesModal } from './components/SoundscapesModal';
 import { InfoPageModal, InfoModalPage } from './components/InfoPageModal';
 import { LivingTheme } from './components/LivingCanvas';
+import { WELLNESS_ARTICLES } from './data/wellnessArticles';
+import { WellnessGuidesSection } from './components/WellnessGuidesSection';
+import { LearnHubView } from './components/LearnHubView';
+import { ArticleView } from './components/ArticleView';
 
 interface RouteConfig {
   sectionId?: string;
@@ -162,9 +166,29 @@ const ROUTE_META_MAP: Record<string, RouteConfig> = {
     keywords: 'download instilll, download inStill, instilll apk, inStill app download, install pwa wellness, android mental health app, ios webapp installation',
     infoPage: 'downloads',
   },
+  '/learn': {
+    title: 'Wellness Library & Mental Health Guides | instilll',
+    desc: 'Explore science-backed guides on anxiety, insomnia, burnout, doomscrolling, trauma recovery, and vagal breathwork designed for daily calm.',
+    keywords: 'wellness library, mental health guides, vagal breathwork, anxiety relief, insomnia sleep, burnout recovery, trauma healing, digital fatigue, somatic therapy, mindful presence, daily balance',
+  },
 };
 
+// Register all 8 wellness articles into ROUTE_META_MAP
+for (const article of WELLNESS_ARTICLES) {
+  ROUTE_META_MAP[article.path] = {
+    title: article.metaTitle,
+    desc: article.metaDescription,
+    keywords: article.keywords,
+  };
+}
+
 export const App: React.FC = () => {
+  const [currentPath, setCurrentPath] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      return window.location.pathname.replace(/\/$/, '') || '/';
+    }
+    return '/';
+  });
   const [currentTheme, setCurrentTheme] = useState<LivingTheme>('CW');
   const [isClockModalOpen, setIsClockModalOpen] = useState(false);
   const [isSoundModalOpen, setIsSoundModalOpen] = useState(false);
@@ -180,6 +204,7 @@ export const App: React.FC = () => {
 
   const handleRoute = useCallback((pathname: string) => {
     const cleanPath = pathname.replace(/\/$/, '') || '/';
+    setCurrentPath(cleanPath);
     const route = ROUTE_META_MAP[cleanPath] || ROUTE_META_MAP['/'];
 
     // Update document title & canonical link
@@ -187,12 +212,107 @@ export const App: React.FC = () => {
       document.title = route.title;
       const descEl = document.querySelector('meta[name="description"]');
       if (descEl) descEl.setAttribute('content', route.desc);
+      const keywordsEl = document.querySelector('meta[name="keywords"]');
+      if (keywordsEl && route.keywords) keywordsEl.setAttribute('content', route.keywords);
+
+      const ogTitleEl = document.querySelector('meta[property="og:title"]');
+      if (ogTitleEl) ogTitleEl.setAttribute('content', route.title);
       const ogDescEl = document.querySelector('meta[property="og:description"]');
       if (ogDescEl) ogDescEl.setAttribute('content', route.desc);
+
+      const twTitleEl = document.querySelector('meta[name="twitter:title"]');
+      if (twTitleEl) twTitleEl.setAttribute('content', route.title);
+      const twDescEl = document.querySelector('meta[name="twitter:description"]');
+      if (twDescEl) twDescEl.setAttribute('content', route.desc);
 
       const canonicalEl = document.querySelector('link[rel="canonical"]');
       if (canonicalEl) {
         canonicalEl.setAttribute('href', `https://instilll.com${cleanPath === '/' ? '' : cleanPath}`);
+      }
+
+      // JSON-LD structured data injection for Article & Breadcrumbs
+      let routeJsonLd = document.getElementById('route-jsonld');
+      if (!routeJsonLd) {
+        routeJsonLd = document.createElement('script');
+        routeJsonLd.id = 'route-jsonld';
+        routeJsonLd.setAttribute('type', 'application/ld+json');
+        document.head.appendChild(routeJsonLd);
+      }
+
+      if (cleanPath.startsWith('/learn/')) {
+        const article = WELLNESS_ARTICLES.find((a) => a.path === cleanPath || a.slug === cleanPath.replace('/learn/', ''));
+        if (article) {
+          routeJsonLd.textContent = JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Article',
+              '@id': `https://instilll.com${cleanPath}#article`,
+              'headline': article.title,
+              'description': article.metaDescription,
+              'datePublished': article.datePublished,
+              'dateModified': article.dateModified,
+              'author': {
+                '@type': 'Organization',
+                'name': 'instilll',
+                'url': 'https://instilll.com',
+              },
+              'publisher': {
+                '@type': 'Organization',
+                'name': 'instilll',
+                'url': 'https://instilll.com',
+                'logo': {
+                  '@type': 'ImageObject',
+                  'url': 'https://instilll.com/assets/logo.png',
+                },
+              },
+              'mainEntityOfPage': {
+                '@type': 'WebPage',
+                '@id': `https://instilll.com${cleanPath}`,
+              },
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              'itemListElement': [
+                {
+                  '@type': 'ListItem',
+                  'position': 1,
+                  'name': 'Home',
+                  'item': 'https://instilll.com/',
+                },
+                {
+                  '@type': 'ListItem',
+                  'position': 2,
+                  'name': 'Wellness Library',
+                  'item': 'https://instilll.com/learn',
+                },
+                {
+                  '@type': 'ListItem',
+                  'position': 3,
+                  'name': article.title,
+                  'item': `https://instilll.com${cleanPath}`,
+                },
+              ],
+            },
+          ]);
+        }
+      } else if (cleanPath === '/learn') {
+        routeJsonLd.textContent = JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          '@id': 'https://instilll.com/learn#webpage',
+          'url': 'https://instilll.com/learn',
+          'name': 'Wellness Library & Mindful Science Guides | instilll',
+          'description': 'Explore science-backed guides on anxiety, insomnia, burnout, doomscrolling, trauma recovery, and vagal breathwork designed for daily calm.',
+          'isPartOf': {
+            '@type': 'WebSite',
+            '@id': 'https://instilll.com/#website',
+            'url': 'https://instilll.com/',
+            'name': 'instilll',
+          },
+        });
+      } else {
+        routeJsonLd.textContent = '';
       }
 
       if (route.infoPage) {
@@ -274,53 +394,73 @@ export const App: React.FC = () => {
       />
 
       <main id="main-content">
-        {/* Section 1: Hero with Tilted Cartoon Stickers */}
-        <HeroSection
-          currentTheme={currentTheme}
-          onThemeSelect={(t) => setCurrentTheme(t)}
-          onOpenSoundModal={() => {
-            navigateTo('/soundboard');
-            setIsSoundModalOpen(true);
-          }}
-        />
+        {currentPath === '/learn' ? (
+          <LearnHubView onNavigate={navigateTo} />
+        ) : currentPath.startsWith('/learn/') ? (
+          (() => {
+            const article = WELLNESS_ARTICLES.find(
+              (a) => a.path === currentPath || a.slug === currentPath.replace('/learn/', '')
+            );
+            return article ? (
+              <ArticleView article={article} onNavigate={navigateTo} />
+            ) : (
+              <LearnHubView onNavigate={navigateTo} />
+            );
+          })()
+        ) : (
+          <>
+            {/* Section 1: Hero with Tilted Cartoon Stickers */}
+            <HeroSection
+              currentTheme={currentTheme}
+              onThemeSelect={(t) => setCurrentTheme(t)}
+              onOpenSoundModal={() => {
+                navigateTo('/soundboard');
+                setIsSoundModalOpen(true);
+              }}
+            />
 
-        {/* Section 2: Today (Dashboard) Feature Suite */}
-        <TodayDashboardSection />
+            {/* Section 2: Today (Dashboard) Feature Suite */}
+            <TodayDashboardSection />
 
-        {/* Section 3: Practice (Breathe, Heal & Sleep) */}
-        <PracticeSection />
+            {/* Section 3: Practice (Breathe, Heal & Sleep) */}
+            <PracticeSection />
 
-        {/* Section 4: Journal & Multi-Scale Trend Analytics */}
-        <JournalSection />
+            {/* Section 4: Journal & Multi-Scale Trend Analytics */}
+            <JournalSection />
 
-        {/* Section 5: Clinical Telehealth (Agora RTC) */}
-        <TherapySection />
+            {/* Section 5: Clinical Telehealth (Agora RTC) */}
+            <TherapySection />
 
-        {/* Section 6: Play & Sensory Companions */}
-        <PlayCompanionsSection />
+            {/* Section 6: Play & Sensory Companions */}
+            <PlayCompanionsSection />
 
-        {/* Section 7: Focus Desk Clock & StandBy Mode */}
-        <DeskClockSection
-          onOpenFullscreenModal={() => {
-            navigateTo('/standby');
-            setIsClockModalOpen(true);
-          }}
-        />
+            {/* Section 7: Focus Desk Clock & StandBy Mode */}
+            <DeskClockSection
+              onOpenFullscreenModal={() => {
+                navigateTo('/standby');
+                setIsClockModalOpen(true);
+              }}
+            />
 
-        {/* Section 8: DoomScroll Breaker (Digital Wellbeing) */}
-        <DoomBreakerSection />
+            {/* Section 8: DoomScroll Breaker (Digital Wellbeing) */}
+            <DoomBreakerSection />
 
-        {/* Section 9: Sensory Acoustics & Soundboard */}
-        <SoundboardSection />
+            {/* Section 9: Sensory Acoustics & Soundboard */}
+            <SoundboardSection />
 
-        {/* Section 10: Profile, Safety & 24/7 Crisis Lifeline */}
-        <ProfileLifelineSection />
+            {/* Section 10: Profile, Safety & 24/7 Crisis Lifeline */}
+            <ProfileLifelineSection />
 
-        {/* Section 11: The 11 Living Canvas Ambient Themes Matrix */}
-        <LivingThemesMatrix
-          currentTheme={currentTheme}
-          onThemeSelect={(t) => setCurrentTheme(t)}
-        />
+            {/* Section 11: Wellness Guides & Mindful Science Section */}
+            <WellnessGuidesSection onNavigate={navigateTo} />
+
+            {/* Section 12: The 11 Living Canvas Ambient Themes Matrix */}
+            <LivingThemesMatrix
+              currentTheme={currentTheme}
+              onThemeSelect={(t) => setCurrentTheme(t)}
+            />
+          </>
+        )}
       </main>
 
       {/* Footer with Comprehensive Multipage Links */}

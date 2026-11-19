@@ -734,6 +734,342 @@ const pages = [
     `,
     ctaHref: '/#today',
     ctaText: 'Accept & Launch instilll'
+  },
+  {
+    slug: 'learn',
+    title: 'Wellness Library & Mental Health Guides | instilll',
+    desc: 'Explore science-backed guides on anxiety, insomnia, burnout, doomscrolling, trauma recovery, and vagal breathwork designed for daily calm.',
+    keywords: 'wellness library, mental health guides, vagal breathwork, anxiety relief, insomnia sleep, burnout recovery, trauma healing, digital fatigue, somatic therapy, mindful presence, daily balance',
+    icon: '📚',
+    headline: 'Wellness Library & Mindful Science Guides',
+    tagline: 'Evidence-Based Clinical & Somatic Recovery Guides',
+    content: `
+      <p>The <strong>instilll Wellness Library</strong> synthesizes clinical psychology, autonomic neuroscience, and polyvagal theory into actionable, low-friction recovery guides. Each article is paired directly with on-device bio-responsive tools in instilll.</p>
+      <div class="features-grid">
+        <div class="feature-item">
+          <strong>Anxiety & Vagal Regulation</strong>
+          <span>Understand sympathetic hyperarousal and learn how 4-4-4-4 box breathing activates the vagus nerve brake.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Doomscrolling & Dopamine Reset</strong>
+          <span>Break infinite-feed trance loops with gentle acoustic interventions and distraction-free StandBy modes.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Insomnia & Circadian Hygiene</strong>
+          <span>Quiet nocturnal hyperarousal with 4-7-8 relaxing breathwork and low-glare bedside rituals.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Burnout & Stress Recovery</strong>
+          <span>Track emotional and biometric trajectory drift with Hermite cubic splines to prevent full nervous system collapse.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Trauma & Bilateral EMDR</strong>
+          <span>Discover how alternating left-right auditory panning supports somatic grounding and memory reprocessing.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Depression & Micro-Steps</strong>
+          <span>Overcome emotional paralysis through gentle behavioral activation—choosing actions calibrated to 10% energy.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Sensory Overload Grounding</strong>
+          <span>Dissolve neurodivergent fatigue and sensory bottlenecks using low-contrast shaders and predictable acoustics.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Hydration & Walking Clarity</strong>
+          <span>Understand how mild fluid deficits impair cognitive performance and how gentle walking boosts creative ideation.</span>
+        </div>
+      </div>
+    `,
+    ctaHref: '/#wellness-library',
+    ctaText: 'Browse All Guides in App'
+  },
+  {
+    slug: 'learn/anxiety-panic-vagal-regulation',
+    title: 'Anxiety, Panic & Vagal Breathwork Guide | instilll',
+    desc: 'Understand sympathetic hyperarousal and learn how 4-4-4-4 box breathing and extended-exhale vagal toning calm acute anxiety and panic.',
+    keywords: 'anxiety relief, panic attack breathwork, vagal nerve regulation, polyvagal theory, box breathing 4-4-4, extended exhale, parasympathetic activation',
+    icon: '🫁',
+    headline: 'Anxiety, Panic & Vagal Nervous System Regulation',
+    tagline: 'Somatic Breathwork & Autonomic Down-Regulation',
+    isArticle: true,
+    content: `
+      <p><strong>When anxiety spikes, logic alone rarely calms the body.</strong> Because panic begins in the autonomic nervous system, the fastest way back to steadiness is through your breath.</p>
+      <div class="features-grid">
+        <div class="feature-item">
+          <strong>Why Anxiety Feels Physical</strong>
+          <span>Sympathetic "fight-or-flight" activation floods the bloodstream with adrenaline, accelerating heart rate and inducing tunnel vision.</span>
+        </div>
+        <div class="feature-item">
+          <strong>The Vagus Nerve Brake</strong>
+          <span>Prolonged exhalations stimulate baroreceptors, releasing acetylcholine to rapidly decelerate heart rate and restore safety.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Three Breathing Protocols</strong>
+          <span>Box Breathing (4-4-4-4) for acute stabilization, Slow 4-6 Calm for midday tension, and 4-7-8 for sleep onset.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Clinical Therapy Integration</strong>
+          <span>Pairing daily vagal breathwork with licensed somatic psychotherapy provides lasting relief from recurring panic.</span>
+        </div>
+      </div>
+      <div style="margin-top: 24px; padding: 18px; border-radius: 16px; background: rgba(210, 245, 108, 0.25); border: 1px solid rgba(10, 72, 57, 0.2);">
+        <strong>💡 Did You Know?</strong> Your heart naturally beats faster on inhale and slows on exhale (respiratory sinus arrhythmia). Extending your exhale taps directly into this built-in calming reflex.
+      </div>
+    `,
+    ctaHref: '/#practice',
+    ctaText: 'Practice Box Breathing in instilll'
+  },
+  {
+    slug: 'learn/doomscrolling-dopamine-attention-reset',
+    title: 'Stop Doomscrolling & Reset Dopamine | instilll',
+    desc: 'Break infinite-feed dopamine loops and attention fatigue with gentle sensory interventions, mindful scroll limits, and focus rituals.',
+    keywords: 'stop doomscrolling, digital wellbeing, dopamine detox, attention residue, infinite feed trap, screen time intervention, standby desk clock',
+    icon: '⚡',
+    headline: 'Doomscrolling, Digital Fatigue & Attention Reset',
+    tagline: 'Gentle Sensory Pattern Interruption & Attention Sovereignty',
+    isArticle: true,
+    content: `
+      <p><strong>Infinite feeds are engineered to keep your thumb moving long after your mind wants to stop.</strong> Reclaiming your attention starts with interrupting autopilot gently—not with guilt.</p>
+      <div class="features-grid">
+        <div class="feature-item">
+          <strong>Variable-Ratio Dopamine Loops</strong>
+          <span>Algorithmic feeds mimic slot machines, keeping dopamine anticipation firing while exhausting executive working memory.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Why Willpower Fails</strong>
+          <span>At the end of a demanding day, prefrontal inhibition is depleted. Expecting raw willpower to defeat engagement algorithms is an unfair contest.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Gentle Acoustic Interruption</strong>
+          <span>A deep Tibetan singing bowl gong and brief breathing pause gently awaken awareness without triggering hostility.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Building an Attention Sanctuary</strong>
+          <span>Dock your phone into landscape StandBy mode during focus sessions, silencing all push notifications.</span>
+        </div>
+      </div>
+      <div style="margin-top: 24px; padding: 18px; border-radius: 16px; background: rgba(210, 245, 108, 0.25); border: 1px solid rgba(10, 72, 57, 0.2);">
+        <strong>💡 Did You Know?</strong> Soft, resonant acoustic cues interrupt autopilot doomscrolling more effectively than jarring lockouts because they shift attention without triggering stress resistance.
+      </div>
+    `,
+    ctaHref: '/#doombreaker',
+    ctaText: 'Configure DoomScroll Breaker in instilll'
+  },
+  {
+    slug: 'learn/insomnia-circadian-rhythm-sleep-hygiene',
+    title: 'Insomnia & Circadian Sleep Hygiene Guide | instilll',
+    desc: 'Quiet racing nighttime thoughts with 4-7-8 breathwork, circadian wind-down cues, and distraction-free StandBy bedside rituals.',
+    keywords: 'insomnia relief, circadian rhythm sleep, nighttime overthinking, sleep hygiene, 4-7-8 sleep breathing, standby bedside clock, ambient sleep soundscapes',
+    icon: '🌙',
+    headline: 'Insomnia, Circadian Drift & Nighttime Overthinking',
+    tagline: 'Circadian Light Hygiene, Cognitive Offloading & Restorative Art',
+    isArticle: true,
+    content: `
+      <p><strong>Sleeplessness is rarely about not being tired—it is usually about a nervous system that still believes it needs to stay on guard.</strong></p>
+      <div class="features-grid">
+        <div class="feature-item">
+          <strong>Hyperarousal Insomnia</strong>
+          <span>Daytime stress carries into the evening as cognitive vigilance, making the bed feel like a place for rumination rather than surrender.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Protecting Circadian Rhythm</strong>
+          <span>Morning sunlight exposure sets melatonin timing, while dimming 450nm blue light in the evening preserves sleep pressure.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Bedside Wind-Down Ritual</strong>
+          <span>Dock your device in StandBy mode, offload tomorrow's worries into a 3-minute journal, and run 4-7-8 breathing cycles.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Clinical CBT-I Solutions</strong>
+          <span>Chronic sleep difficulties lasting months respond strongly to Cognitive Behavioral Therapy for Insomnia (CBT-I).</span>
+        </div>
+      </div>
+      <div style="margin-top: 24px; padding: 18px; border-radius: 16px; background: rgba(210, 245, 108, 0.25); border: 1px solid rgba(10, 72, 57, 0.2);">
+        <strong>💡 Did You Know?</strong> Even a quick glance at work notifications at midnight shifts your nervous system out of parasympathetic mode, delaying deep sleep stages.
+      </div>
+    `,
+    ctaHref: '/#practice',
+    ctaText: 'Launch Sleep Dreamscapes in instilll'
+  },
+  {
+    slug: 'learn/burnout-chronic-stress-recovery',
+    title: 'Burnout & Chronic Stress Recovery Guide | instilll',
+    desc: 'Recognize early signs of burnout, track emotional and biometric trends with cubic spline analytics, and rebuild sustainable mental presence.',
+    keywords: 'burnout recovery, chronic stress symptoms, emotional exhaustion, high performance fatigue, hermite cubic splines, mental health tracking, clinical telehealth',
+    icon: '📉',
+    headline: 'Chronic Stress & High-Performance Burnout Recovery',
+    tagline: 'Multi-Week Trajectory Analytics, Micro-Recovery & Pacing',
+    isArticle: true,
+    content: `
+      <p><strong>Burnout does not arrive overnight.</strong> It builds quietly through months of unrecovered micro-stress—until exhaustion, cynicism, and brain fog become your baseline.</p>
+      <div class="features-grid">
+        <div class="feature-item">
+          <strong>The Three Dimensions</strong>
+          <span>Emotional exhaustion, cynicism/depersonalization, and a reduced sense of personal efficacy define occupational burnout.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Trajectory Drift Analytics</strong>
+          <span>Tracking 5-state mood check-ins and step telemetry with cubic spline modeling exposes downward trends weeks before a crash.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Micro-Recovery Throughout Work</strong>
+          <span>Short 90-second breathing breaks and brief walks protect cognitive stamina far better than waiting for a weekend catch-up.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Rebuilding Boundaries</strong>
+          <span>Work with licensed somatic clinicians to dismantle chronic overwork and establish sustainable emotional boundaries.</span>
+        </div>
+      </div>
+      <div style="margin-top: 24px; padding: 18px; border-radius: 16px; background: rgba(210, 245, 108, 0.25); border: 1px solid rgba(10, 72, 57, 0.2);">
+        <strong>💡 Did You Know?</strong> Putting your emotional state into words (affect labeling) calms amygdala reactivity and re-engages rational prefrontal circuits.
+      </div>
+    `,
+    ctaHref: '/#journal',
+    ctaText: 'Review Weekly Trends in instilll'
+  },
+  {
+    slug: 'learn/trauma-ptsd-somatic-emdr-therapy',
+    title: 'Trauma, PTSD & Bilateral EMDR Guide | instilll',
+    desc: 'Learn how trauma affects autonomic regulation and how somatic grounding, bilateral audio, and licensed EMDR telehealth support healing.',
+    keywords: 'trauma healing, ptsd recovery, somatic experiencing, bilateral audio emdr, polyvagal safety, nervous system healing, licensed telehealth',
+    icon: '🎧',
+    headline: 'Trauma, PTSD & Somatic Nervous System Healing',
+    tagline: 'Bilateral Auditory Panning, Bottom-Up Grounding & Clinical Care',
+    isArticle: true,
+    content: `
+      <p><strong>Trauma is not only a memory of the past—it can linger as an autonomic survival pattern in the body.</strong> Compassionate, trauma-informed care helps restore a felt sense of safety.</p>
+      <div class="features-grid">
+        <div class="feature-item">
+          <strong>Autonomic Survival Patterns</strong>
+          <span>Polyvagal theory shows how trauma locks the nervous system in fight, flight, freeze, or shutdown states.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Bottom-Up Somatic Grounding</strong>
+          <span>Physical grounding cues communicate real-time safety directly to subcortical threat circuitry when logic cannot.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Bilateral Audio Stimulation</strong>
+          <span>Alternating left-right acoustic stimulation maintains dual attention, anchoring you in the present during distress.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Confidential Clinical Care</strong>
+          <span>Trauma reprocessing should be guided by certified EMDR therapists via encrypted telehealth and 24/7 crisis support.</span>
+        </div>
+      </div>
+      <div style="margin-top: 24px; padding: 18px; border-radius: 16px; background: rgba(210, 245, 108, 0.25); border: 1px solid rgba(10, 72, 57, 0.2);">
+        <strong>💡 Did You Know?</strong> Alternating left-right sensory cues (bilateral stimulation) keep the brain anchored in the present while gently processing distressing memories.
+      </div>
+    `,
+    ctaHref: '/#practice',
+    ctaText: 'Experience Bilateral Audio in instilll'
+  },
+  {
+    slug: 'learn/depression-low-mood-behavioral-activation',
+    title: 'Low Mood & Behavioral Activation Guide | instilll',
+    desc: 'Navigate emotional numbness and low mood with low-friction daily rituals: micro-walks, hydration check-ins, journaling, and 24/7 support.',
+    keywords: 'low mood guide, behavioral activation, depression recovery, micro steps, emotional climate tracker, gentle movement, hydration check in',
+    icon: '🌱',
+    headline: 'Low Mood, Depression & Gentle Behavioral Activation',
+    tagline: 'Action Precedes Motivation: Low-Friction Micro-Steps',
+    isArticle: true,
+    content: `
+      <p><strong>When depression or emotional heaviness sets in, waiting to "feel motivated" can keep you stuck.</strong> Behavioral activation flips the script: tiny, gentle actions come first, and mood follows gradually.</p>
+      <div class="features-grid">
+        <div class="feature-item">
+          <strong>Emotional Numbness & Anhedonia</strong>
+          <span>Persistent depressive states rob once-loved activities of pleasure, falsely whispering that action must wait for motivation.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Micro-Steps for 10% Energy</strong>
+          <span>Drinking one glass of water, walking 500 steps, or writing one word in a diary breaks the lethargy cycle without overwhelm.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Non-Judgmental Logging</strong>
+          <span>Checking in as "Low" is neutral physiological data that removes guilt from natural emotional fluctuations.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Support Is Always Available</strong>
+          <span>You do not have to carry it alone. Reach out to licensed clinicians or connect with the 988 Lifeline anytime.</span>
+        </div>
+      </div>
+      <div style="margin-top: 24px; padding: 18px; border-radius: 16px; background: rgba(210, 245, 108, 0.25); border: 1px solid rgba(10, 72, 57, 0.2);">
+        <strong>💡 Did You Know?</strong> Low-intensity walking regulates mood neurotransmitters and interrupts rumination loops far better than trying to think through a fog while sitting still.
+      </div>
+    `,
+    ctaHref: '/#today',
+    ctaText: 'Open Daily Balance Hub in instilll'
+  },
+  {
+    slug: 'learn/sensory-overload-gentle-grounding',
+    title: 'Sensory Overload & Gentle Grounding | instilll',
+    desc: 'Dissolve overstimulation and cognitive fatigue using predictable acoustic cues, tactile micro-play, and low-contrast visual sanctuaries.',
+    keywords: 'sensory overload, neurodivergent fatigue, adhd overstimulation, autism sensory reset, gentle grounding, acoustic soundboard, tactile micro play',
+    icon: '🫧',
+    headline: 'Sensory Overload, Neurodivergent Fatigue & Gentle Grounding',
+    tagline: 'Predictable Acoustics, Tactile Micro-Play & Visual Sanctuaries',
+    isArticle: true,
+    content: `
+      <p><strong>Bright screens, overlapping notifications, and constant social noise can push any nervous system past its sensory threshold.</strong></p>
+      <div class="features-grid">
+        <div class="feature-item">
+          <strong>The Sensory Bottleneck</strong>
+          <span>Overstimulation triggers brain fog, acute irritability, and a visceral urge to shut down or withdraw from incoming inputs.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Low-Contrast Visual Sanctuaries</strong>
+          <span>Switching to soft, organic WebGL shaders and muted palettes relieves chronic eye strain and sensory friction.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Predictable Micro-Acoustics</strong>
+          <span>Pure acoustic frequencies (Tibetan bells, singing bowls, kalimba plucks) entrain brainwaves into harmonic calm.</span>
+        </div>
+        <div class="feature-item">
+          <strong>5-Minute Decompression Bridges</strong>
+          <span>Create an intentional quiet pause between high-stimulus environments to restore cognitive equanimity.</span>
+        </div>
+      </div>
+      <div style="margin-top: 24px; padding: 18px; border-radius: 16px; background: rgba(210, 245, 108, 0.25); border: 1px solid rgba(10, 72, 57, 0.2);">
+        <strong>💡 Did You Know?</strong> Domestic cats purr at a low-frequency 25–150 Hz band—a rhythmic acoustic pattern widely experienced as soothing and grounding during stress.
+      </div>
+    `,
+    ctaHref: '/#companions',
+    ctaText: 'Interact with Sensory Companions in instilll'
+  },
+  {
+    slug: 'learn/hydration-movement-cognitive-balance',
+    title: 'Hydration, Walking & Mental Clarity | instilll',
+    desc: 'Discover how mild dehydration and sedentary stretches impact mood and focus, and how gentle hydration chimes and step goals restore balance.',
+    keywords: 'hydration mental clarity, walking cognitive balance, mild dehydration symptoms, daily step counter, pedometer telemetry, water tracker',
+    icon: '💧',
+    headline: 'Hydration, Daily Movement & Cognitive Balance',
+    tagline: 'Fluid Dynamics, Cerebral Oxygenation & Divergent Thinking',
+    isArticle: true,
+    content: `
+      <p><strong>Before assuming you have lost your focus or motivation, check two quiet physiological foundations: water and gentle movement.</strong></p>
+      <div class="features-grid">
+        <div class="feature-item">
+          <strong>1–2% Dehydration Impacts Mood</strong>
+          <span>Mild fluid deficits contract blood volume, increasing task difficulty, headaches, and tension before intense thirst occurs.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Walking Sparks Divergent Thought</strong>
+          <span>Stanford research confirms that walking boosts creative divergent thinking by up to 60% compared to sitting.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Frictionless Habit Pacing</strong>
+          <span>Single-tap +250ml hydration logging and gentle chimes create peaceful, sustainable physical mindfulness habits.</span>
+        </div>
+        <div class="feature-item">
+          <strong>Observing the Mind-Body Loop</strong>
+          <span>Multi-scale trend curves comparing water, steps, and emotional states reveal how physical grounding protects mental clarity.</span>
+        </div>
+      </div>
+      <div style="margin-top: 24px; padding: 18px; border-radius: 16px; background: rgba(210, 245, 108, 0.25); border: 1px solid rgba(10, 72, 57, 0.2);">
+        <strong>💡 Did You Know?</strong> Research from Stanford University found that walking—even briefly indoors or outdoors—meaningfully boosts creative thinking compared to sitting still.
+      </div>
+    `,
+    ctaHref: '/#today',
+    ctaText: 'Track Hydration & Pedometer in instilll'
   }
 ];
 
@@ -790,8 +1126,8 @@ function generateHtml(page) {
 
     <!-- Theming & Favicon -->
     <meta name="theme-color" content="#FAFAF7" />
-    <link rel="icon" type="image/png" href="../assets/logo.png" />
-    <link rel="apple-touch-icon" href="../assets/logo.png" />
+    <link rel="icon" type="image/png" href="/assets/logo.png" />
+    <link rel="apple-touch-icon" href="/assets/logo.png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -800,13 +1136,67 @@ function generateHtml(page) {
 
     <!-- Schema.org JSON-LD Structured Data -->
     <script type="application/ld+json">
-    {
+    ${page.isArticle ? JSON.stringify([
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": `${canonicalUrl}#article`,
+        "url": canonicalUrl,
+        "headline": page.headline,
+        "description": page.desc,
+        "datePublished": "2026-11-20",
+        "dateModified": "2026-11-20",
+        "author": {
+          "@type": "Organization",
+          "name": "instilll",
+          "url": "https://instilll.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "instilll",
+          "url": "https://instilll.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://instilll.com/assets/logo.png"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": canonicalUrl
+        },
+        "keywords": allKeywords
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://instilll.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Wellness Library",
+            "item": "https://instilll.com/learn"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": page.headline,
+            "item": canonicalUrl
+          }
+        ]
+      }
+    ], null, 2) : JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "@id": "${canonicalUrl}#webpage",
-      "url": "${canonicalUrl}",
-      "name": "${page.title}",
-      "description": "${page.desc}",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
+      "name": page.title,
+      "description": page.desc,
       "isPartOf": {
         "@type": "WebSite",
         "@id": "https://instilll.com/#website",
@@ -826,7 +1216,7 @@ function generateHtml(page) {
           "instilll.com"
         ]
       },
-      "keywords": "${allKeywords}",
+      "keywords": allKeywords,
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -839,12 +1229,12 @@ function generateHtml(page) {
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "${page.headline}",
-            "item": "${canonicalUrl}"
+            "name": page.headline,
+            "item": canonicalUrl
           }
         ]
       }
-    }
+    }, null, 2)}
     </script>
 
     <style>
@@ -993,9 +1383,9 @@ function generateHtml(page) {
   </head>
   <body>
     <div class="page-card">
-      <a href="../" class="brand-header">
+      <a href="/" class="brand-header">
         <div class="brand-logo">
-          <img src="../assets/logo.png" alt="instilll Logo" />
+          <img src="/assets/logo.png" alt="instilll Logo" />
         </div>
         <div class="brand-name">inSTI<span class="l1">L</span><span class="l2">L</span><span class="l3">L</span></div>
       </a>
@@ -1013,7 +1403,8 @@ function generateHtml(page) {
           <span>${page.ctaText}</span>
           <span>&rarr;</span>
         </a>
-        <a href="../" class="btn-secondary">Return to Home</a>
+        ${page.slug.startsWith('learn/') ? '<a href="/learn" class="btn-secondary">Wellness Library</a>' : ''}
+        <a href="/" class="btn-secondary">Return to Home</a>
       </div>
     </div>
 

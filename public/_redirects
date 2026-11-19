@@ -27,6 +27,8 @@
 /about  /index.html  200
 /contact  /index.html  200
 /downloads  /index.html  200
+/learn  /index.html  200
+/learn/*  /index.html  200
 
 # Catch-All SPA Rewrite
 /*  /index.html  200

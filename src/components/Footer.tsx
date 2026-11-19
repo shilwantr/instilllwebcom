@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowUp } from 'lucide-react';
 import { soundEngine } from '../utils/audio';
 import { InstilllWordmark } from './InstilllWordmark';
+import { WELLNESS_ARTICLES } from '../data/wellnessArticles';
 
 interface FooterProps {
   onNavigate?: (path: string) => void;
@@ -215,6 +216,54 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenInfo }) => {
                 <ArrowUp className="w-4 h-4" />
               </button>
             </div>
+          </div>
+        </div>
+
+        {/* Dedicated Wellness Guides Links Row for Search Crawlers & Users */}
+        <div className="py-12 border-b border-slate-100">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div className="flex items-center gap-2.5">
+              <span className="text-xl select-none">📚</span>
+              <div>
+                <h3 className="text-xs uppercase font-mono font-bold tracking-widest text-slate-900">
+                  Wellness Library &amp; Mindful Science Guides
+                </h3>
+                <p className="text-xs text-slate-600 font-normal mt-0.5">
+                  Evidence-based articles on anxiety, sleep, burnout, attention reset, and somatic regulation.
+                </p>
+              </div>
+            </div>
+            <a
+              href="/learn"
+              onClick={(e) => handleLinkClick(e, '/learn')}
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-pop-forest hover:underline flex-shrink-0"
+            >
+              <span>Explore Full Wellness Library ({WELLNESS_ARTICLES.length})</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3.5 text-xs">
+            {WELLNESS_ARTICLES.map((article) => (
+              <a
+                key={article.slug}
+                href={article.path}
+                onClick={(e) => handleLinkClick(e, article.path)}
+                className="p-3.5 rounded-2xl bg-slate-50/80 hover:bg-slate-100/90 border border-slate-200/70 transition-all duration-200 flex flex-col justify-between group"
+              >
+                <div className="flex items-center justify-between gap-2 mb-1.5">
+                  <span className="text-[10px] font-mono font-bold uppercase text-slate-600">
+                    {article.category}
+                  </span>
+                  <span className="text-[10px] font-mono text-slate-500">
+                    {article.readTime}
+                  </span>
+                </div>
+                <span className="font-semibold text-slate-900 group-hover:text-pop-forest transition-colors line-clamp-2">
+                  {article.title}
+                </span>
+              </a>
+            ))}
           </div>
         </div>
 
